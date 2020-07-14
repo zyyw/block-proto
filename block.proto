@@ -2,16 +2,45 @@ syntax = "proto3";
 
 package block_proto;
 
+service BlockGrpcService {
+    rpc CountTransactionByTimeRange(CountTransactionRequest) returns (CountTransactionResponse) {}
+    rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
+}
+
+message GetBlocksRequest {
+  int32 limit = 1;
+}
+
+message GetBlocksResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message BlockItem {
+    int64 block_number = 1;
+    int64 block_time = 2;
+    string block_hash = 3;
+    string parent_hash = 4;
+    string coinbase = 5;
+    int64 gas_limit = 6;
+  }
+  repeated BlockItem block_item_array = 3;
+}
+
 message CountTransactionRequest {
-  int64 beginTimestamp = 1;
-  int64 endTimestamp = 2;
+  int64 begin_timestamp = 1;
+  int64 end_timestamp = 2;
 }
 
 message CountTransactionResponse {
-  int64 count = 1;
+  ReturnCode code = 1;
+  string message = 2;
+
+  int64 count = 3;
 }
 
-service BlockGrpcService {
-    // unary
-    rpc CountTransactionByTimeRange(CountTransactionRequest) returns (CountTransactionResponse) {};
+enum ReturnCode {
+    OK = 0;
+    INTERNAL_ERROR = 1;
+    REQUEST_PARAM_ILLEGAL = 2;
+    OTHER_ERROR = 99;
 }

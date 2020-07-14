@@ -29,19 +29,181 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type ReturnCode int32
+
+const (
+	ReturnCode_OK                    ReturnCode = 0
+	ReturnCode_INTERNAL_ERROR        ReturnCode = 1
+	ReturnCode_REQUEST_PARAM_ILLEGAL ReturnCode = 2
+	ReturnCode_OTHER_ERROR           ReturnCode = 99
+)
+
+// Enum value maps for ReturnCode.
+var (
+	ReturnCode_name = map[int32]string{
+		0:  "OK",
+		1:  "INTERNAL_ERROR",
+		2:  "REQUEST_PARAM_ILLEGAL",
+		99: "OTHER_ERROR",
+	}
+	ReturnCode_value = map[string]int32{
+		"OK":                    0,
+		"INTERNAL_ERROR":        1,
+		"REQUEST_PARAM_ILLEGAL": 2,
+		"OTHER_ERROR":           99,
+	}
+)
+
+func (x ReturnCode) Enum() *ReturnCode {
+	p := new(ReturnCode)
+	*p = x
+	return p
+}
+
+func (x ReturnCode) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ReturnCode) Descriptor() protoreflect.EnumDescriptor {
+	return file_block_proto_enumTypes[0].Descriptor()
+}
+
+func (ReturnCode) Type() protoreflect.EnumType {
+	return &file_block_proto_enumTypes[0]
+}
+
+func (x ReturnCode) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ReturnCode.Descriptor instead.
+func (ReturnCode) EnumDescriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{0}
+}
+
+type GetBlocksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Limit int32 `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
+}
+
+func (x *GetBlocksRequest) Reset() {
+	*x = GetBlocksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBlocksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlocksRequest) ProtoMessage() {}
+
+func (x *GetBlocksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlocksRequest.ProtoReflect.Descriptor instead.
+func (*GetBlocksRequest) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetBlocksRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type GetBlocksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Code           ReturnCode                     `protobuf:"varint,1,opt,name=code,proto3,enum=block_proto.ReturnCode" json:"code,omitempty"`
+	Message        string                         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	BlockItemArray []*GetBlocksResponse_BlockItem `protobuf:"bytes,3,rep,name=block_item_array,json=blockItemArray,proto3" json:"block_item_array,omitempty"`
+}
+
+func (x *GetBlocksResponse) Reset() {
+	*x = GetBlocksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBlocksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlocksResponse) ProtoMessage() {}
+
+func (x *GetBlocksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlocksResponse.ProtoReflect.Descriptor instead.
+func (*GetBlocksResponse) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetBlocksResponse) GetCode() ReturnCode {
+	if x != nil {
+		return x.Code
+	}
+	return ReturnCode_OK
+}
+
+func (x *GetBlocksResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetBlocksResponse) GetBlockItemArray() []*GetBlocksResponse_BlockItem {
+	if x != nil {
+		return x.BlockItemArray
+	}
+	return nil
+}
+
 type CountTransactionRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	BeginTimestamp int64 `protobuf:"varint,1,opt,name=beginTimestamp,proto3" json:"beginTimestamp,omitempty"`
-	EndTimestamp   int64 `protobuf:"varint,2,opt,name=endTimestamp,proto3" json:"endTimestamp,omitempty"`
+	BeginTimestamp int64 `protobuf:"varint,1,opt,name=begin_timestamp,json=beginTimestamp,proto3" json:"begin_timestamp,omitempty"`
+	EndTimestamp   int64 `protobuf:"varint,2,opt,name=end_timestamp,json=endTimestamp,proto3" json:"end_timestamp,omitempty"`
 }
 
 func (x *CountTransactionRequest) Reset() {
 	*x = CountTransactionRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[0]
+		mi := &file_block_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -54,7 +216,7 @@ func (x *CountTransactionRequest) String() string {
 func (*CountTransactionRequest) ProtoMessage() {}
 
 func (x *CountTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[0]
+	mi := &file_block_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -67,7 +229,7 @@ func (x *CountTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountTransactionRequest.ProtoReflect.Descriptor instead.
 func (*CountTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{0}
+	return file_block_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CountTransactionRequest) GetBeginTimestamp() int64 {
@@ -89,13 +251,15 @@ type CountTransactionResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Count int64 `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	Code    ReturnCode `protobuf:"varint,1,opt,name=code,proto3,enum=block_proto.ReturnCode" json:"code,omitempty"`
+	Message string     `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Count   int64      `protobuf:"varint,3,opt,name=count,proto3" json:"count,omitempty"`
 }
 
 func (x *CountTransactionResponse) Reset() {
 	*x = CountTransactionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[1]
+		mi := &file_block_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -108,7 +272,7 @@ func (x *CountTransactionResponse) String() string {
 func (*CountTransactionResponse) ProtoMessage() {}
 
 func (x *CountTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[1]
+	mi := &file_block_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -121,7 +285,21 @@ func (x *CountTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountTransactionResponse.ProtoReflect.Descriptor instead.
 func (*CountTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{1}
+	return file_block_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CountTransactionResponse) GetCode() ReturnCode {
+	if x != nil {
+		return x.Code
+	}
+	return ReturnCode_OK
+}
+
+func (x *CountTransactionResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
 }
 
 func (x *CountTransactionResponse) GetCount() int64 {
@@ -131,29 +309,157 @@ func (x *CountTransactionResponse) GetCount() int64 {
 	return 0
 }
 
+type GetBlocksResponse_BlockItem struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	BlockNumber int64  `protobuf:"varint,1,opt,name=block_number,json=blockNumber,proto3" json:"block_number,omitempty"`
+	BlockTime   int64  `protobuf:"varint,2,opt,name=block_time,json=blockTime,proto3" json:"block_time,omitempty"`
+	BlockHash   string `protobuf:"bytes,3,opt,name=block_hash,json=blockHash,proto3" json:"block_hash,omitempty"`
+	ParentHash  string `protobuf:"bytes,4,opt,name=parent_hash,json=parentHash,proto3" json:"parent_hash,omitempty"`
+	Coinbase    string `protobuf:"bytes,5,opt,name=coinbase,proto3" json:"coinbase,omitempty"`
+	GasLimit    int64  `protobuf:"varint,6,opt,name=gas_limit,json=gasLimit,proto3" json:"gas_limit,omitempty"`
+}
+
+func (x *GetBlocksResponse_BlockItem) Reset() {
+	*x = GetBlocksResponse_BlockItem{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetBlocksResponse_BlockItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBlocksResponse_BlockItem) ProtoMessage() {}
+
+func (x *GetBlocksResponse_BlockItem) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBlocksResponse_BlockItem.ProtoReflect.Descriptor instead.
+func (*GetBlocksResponse_BlockItem) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{1, 0}
+}
+
+func (x *GetBlocksResponse_BlockItem) GetBlockNumber() int64 {
+	if x != nil {
+		return x.BlockNumber
+	}
+	return 0
+}
+
+func (x *GetBlocksResponse_BlockItem) GetBlockTime() int64 {
+	if x != nil {
+		return x.BlockTime
+	}
+	return 0
+}
+
+func (x *GetBlocksResponse_BlockItem) GetBlockHash() string {
+	if x != nil {
+		return x.BlockHash
+	}
+	return ""
+}
+
+func (x *GetBlocksResponse_BlockItem) GetParentHash() string {
+	if x != nil {
+		return x.ParentHash
+	}
+	return ""
+}
+
+func (x *GetBlocksResponse_BlockItem) GetCoinbase() string {
+	if x != nil {
+		return x.Coinbase
+	}
+	return ""
+}
+
+func (x *GetBlocksResponse_BlockItem) GetGasLimit() int64 {
+	if x != nil {
+		return x.GasLimit
+	}
+	return 0
+}
+
 var File_block_proto protoreflect.FileDescriptor
 
 var file_block_proto_rawDesc = []byte{
 	0x0a, 0x0b, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x62,
-	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x65, 0x0a, 0x17, 0x43, 0x6f,
-	0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x26, 0x0a, 0x0e, 0x62, 0x65, 0x67, 0x69, 0x6e, 0x54, 0x69,
-	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x62,
-	0x65, 0x67, 0x69, 0x6e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x12, 0x22, 0x0a,
-	0x0c, 0x65, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x03, 0x52, 0x0c, 0x65, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
-	0x70, 0x22, 0x30, 0x0a, 0x18, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61,
-	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a,
-	0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x32, 0x80, 0x01, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70,
-	0x63, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x6c, 0x0a, 0x1b, 0x43, 0x6f, 0x75, 0x6e,
-	0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x54, 0x69,
-	0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73,
-	0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e,
-	0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e,
-	0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x28, 0x0a, 0x10, 0x47, 0x65,
+	0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14,
+	0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x6c,
+	0x69, 0x6d, 0x69, 0x74, 0x22, 0xf7, 0x02, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63,
+	0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x04, 0x63, 0x6f,
+	0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x17, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
+	0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64,
+	0x65, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x12, 0x52, 0x0a, 0x10, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x69, 0x74, 0x65, 0x6d, 0x5f,
+	0x61, 0x72, 0x72, 0x61, 0x79, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x28, 0x2e, 0x62, 0x6c,
+	0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f,
+	0x63, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x42, 0x6c, 0x6f, 0x63,
+	0x6b, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x0e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x49, 0x74, 0x65, 0x6d,
+	0x41, 0x72, 0x72, 0x61, 0x79, 0x1a, 0xc6, 0x01, 0x0a, 0x09, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x49,
+	0x74, 0x65, 0x6d, 0x12, 0x21, 0x0a, 0x0c, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x6e, 0x75, 0x6d,
+	0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
+	0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x1d, 0x0a, 0x0a, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f,
+	0x74, 0x69, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x62, 0x6c, 0x6f, 0x63,
+	0x6b, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x68,
+	0x61, 0x73, 0x68, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
+	0x48, 0x61, 0x73, 0x68, 0x12, 0x1f, 0x0a, 0x0b, 0x70, 0x61, 0x72, 0x65, 0x6e, 0x74, 0x5f, 0x68,
+	0x61, 0x73, 0x68, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x70, 0x61, 0x72, 0x65, 0x6e,
+	0x74, 0x48, 0x61, 0x73, 0x68, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x6f, 0x69, 0x6e, 0x62, 0x61, 0x73,
+	0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x63, 0x6f, 0x69, 0x6e, 0x62, 0x61, 0x73,
+	0x65, 0x12, 0x1b, 0x0a, 0x09, 0x67, 0x61, 0x73, 0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x06,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x67, 0x61, 0x73, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x22, 0x67,
+	0x0a, 0x17, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x27, 0x0a, 0x0f, 0x62, 0x65, 0x67,
+	0x69, 0x6e, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x0e, 0x62, 0x65, 0x67, 0x69, 0x6e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61,
+	0x6d, 0x70, 0x12, 0x23, 0x0a, 0x0d, 0x65, 0x6e, 0x64, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x73, 0x74,
+	0x61, 0x6d, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x65, 0x6e, 0x64, 0x54, 0x69,
+	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x77, 0x0a, 0x18, 0x43, 0x6f, 0x75, 0x6e, 0x74,
+	0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0e, 0x32, 0x17, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x52, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65,
+	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74,
+	0x2a, 0x54, 0x0a, 0x0a, 0x52, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x06,
+	0x0a, 0x02, 0x4f, 0x4b, 0x10, 0x00, 0x12, 0x12, 0x0a, 0x0e, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e,
+	0x41, 0x4c, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x12, 0x19, 0x0a, 0x15, 0x52, 0x45,
+	0x51, 0x55, 0x45, 0x53, 0x54, 0x5f, 0x50, 0x41, 0x52, 0x41, 0x4d, 0x5f, 0x49, 0x4c, 0x4c, 0x45,
+	0x47, 0x41, 0x4c, 0x10, 0x02, 0x12, 0x0f, 0x0a, 0x0b, 0x4f, 0x54, 0x48, 0x45, 0x52, 0x5f, 0x45,
+	0x52, 0x52, 0x4f, 0x52, 0x10, 0x63, 0x32, 0xce, 0x01, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b,
+	0x47, 0x72, 0x70, 0x63, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x6c, 0x0a, 0x1b, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42,
+	0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72,
+	0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x25, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43,
+	0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4c, 0x0a, 0x09, 0x47, 0x65, 0x74,
+	0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x12, 0x1d, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -168,19 +474,29 @@ func file_block_proto_rawDescGZIP() []byte {
 	return file_block_proto_rawDescData
 }
 
-var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_block_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_block_proto_goTypes = []interface{}{
-	(*CountTransactionRequest)(nil),  // 0: block_proto.CountTransactionRequest
-	(*CountTransactionResponse)(nil), // 1: block_proto.CountTransactionResponse
+	(ReturnCode)(0),                     // 0: block_proto.ReturnCode
+	(*GetBlocksRequest)(nil),            // 1: block_proto.GetBlocksRequest
+	(*GetBlocksResponse)(nil),           // 2: block_proto.GetBlocksResponse
+	(*CountTransactionRequest)(nil),     // 3: block_proto.CountTransactionRequest
+	(*CountTransactionResponse)(nil),    // 4: block_proto.CountTransactionResponse
+	(*GetBlocksResponse_BlockItem)(nil), // 5: block_proto.GetBlocksResponse.BlockItem
 }
 var file_block_proto_depIdxs = []int32{
-	0, // 0: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountTransactionRequest
-	1, // 1: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountTransactionResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: block_proto.GetBlocksResponse.code:type_name -> block_proto.ReturnCode
+	5, // 1: block_proto.GetBlocksResponse.block_item_array:type_name -> block_proto.GetBlocksResponse.BlockItem
+	0, // 2: block_proto.CountTransactionResponse.code:type_name -> block_proto.ReturnCode
+	3, // 3: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountTransactionRequest
+	1, // 4: block_proto.BlockGrpcService.GetBlocks:input_type -> block_proto.GetBlocksRequest
+	4, // 5: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountTransactionResponse
+	2, // 6: block_proto.BlockGrpcService.GetBlocks:output_type -> block_proto.GetBlocksResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_block_proto_init() }
@@ -190,7 +506,7 @@ func file_block_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_block_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CountTransactionRequest); i {
+			switch v := v.(*GetBlocksRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -202,7 +518,43 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBlocksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CountTransactionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CountTransactionResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBlocksResponse_BlockItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -219,13 +571,14 @@ func file_block_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_block_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   2,
+			NumEnums:      1,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_block_proto_goTypes,
 		DependencyIndexes: file_block_proto_depIdxs,
+		EnumInfos:         file_block_proto_enumTypes,
 		MessageInfos:      file_block_proto_msgTypes,
 	}.Build()
 	File_block_proto = out.File
@@ -246,8 +599,8 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BlockGrpcServiceClient interface {
-	// unary
 	CountTransactionByTimeRange(ctx context.Context, in *CountTransactionRequest, opts ...grpc.CallOption) (*CountTransactionResponse, error)
+	GetBlocks(ctx context.Context, in *GetBlocksRequest, opts ...grpc.CallOption) (*GetBlocksResponse, error)
 }
 
 type blockGrpcServiceClient struct {
@@ -267,10 +620,19 @@ func (c *blockGrpcServiceClient) CountTransactionByTimeRange(ctx context.Context
 	return out, nil
 }
 
+func (c *blockGrpcServiceClient) GetBlocks(ctx context.Context, in *GetBlocksRequest, opts ...grpc.CallOption) (*GetBlocksResponse, error) {
+	out := new(GetBlocksResponse)
+	err := c.cc.Invoke(ctx, "/block_proto.BlockGrpcService/GetBlocks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BlockGrpcServiceServer is the server API for BlockGrpcService service.
 type BlockGrpcServiceServer interface {
-	// unary
 	CountTransactionByTimeRange(context.Context, *CountTransactionRequest) (*CountTransactionResponse, error)
+	GetBlocks(context.Context, *GetBlocksRequest) (*GetBlocksResponse, error)
 }
 
 // UnimplementedBlockGrpcServiceServer can be embedded to have forward compatible implementations.
@@ -279,6 +641,9 @@ type UnimplementedBlockGrpcServiceServer struct {
 
 func (*UnimplementedBlockGrpcServiceServer) CountTransactionByTimeRange(context.Context, *CountTransactionRequest) (*CountTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CountTransactionByTimeRange not implemented")
+}
+func (*UnimplementedBlockGrpcServiceServer) GetBlocks(context.Context, *GetBlocksRequest) (*GetBlocksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBlocks not implemented")
 }
 
 func RegisterBlockGrpcServiceServer(s *grpc.Server, srv BlockGrpcServiceServer) {
@@ -303,6 +668,24 @@ func _BlockGrpcService_CountTransactionByTimeRange_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BlockGrpcService_GetBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlocksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockGrpcServiceServer).GetBlocks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/block_proto.BlockGrpcService/GetBlocks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockGrpcServiceServer).GetBlocks(ctx, req.(*GetBlocksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "block_proto.BlockGrpcService",
 	HandlerType: (*BlockGrpcServiceServer)(nil),
@@ -310,6 +693,10 @@ var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CountTransactionByTimeRange",
 			Handler:    _BlockGrpcService_CountTransactionByTimeRange_Handler,
+		},
+		{
+			MethodName: "GetBlocks",
+			Handler:    _BlockGrpcService_GetBlocks_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
