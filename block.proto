@@ -3,8 +3,20 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
-    rpc CountTransactionByTimeRange(CountTransactionRequest) returns (CountTransactionResponse) {}
-    rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
+  rpc CountTransactionByTimeRange(CountTransactionRequest) returns (CountTransactionResponse) {}
+  rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
+  rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
+}
+
+message CountTransactionByBlockNumberRequest {
+  int64 block_number = 1;
+}
+
+message CountTransactionByBlockNumberResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  int64 transaction_count = 3;
 }
 
 message GetBlocksRequest {
