@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package block_grpc;
+
+message CountTransactionRequest {
+  int64 beginTimestamp = 1;
+  int64 endTimestamp = 2;
+}
+
+message CountTransactionResponse {
+  int64 count = 1;
+}
+
+service BlockGrpcService {
+    // unary
+    rpc CountTransactionByTimeRange(CountTransactionRequest) returns (CountTransactionResponse) {};
+}
