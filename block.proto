@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package block_grpc;
+package block_proto;
 
 message CountTransactionRequest {
   int64 beginTimestamp = 1;
