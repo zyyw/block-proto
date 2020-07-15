@@ -3,9 +3,11 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
-  rpc CountTransactionByTimeRange(CountTransactionByTimeRangeRequest) returns (CountTransactionByTimeRangeResponse) {}
+  rpc CountTransactionByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
+  rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
+  rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}  
 }
 
 message CountTransactionByBlockNumberRequest {
@@ -38,12 +40,12 @@ message GetBlocksResponse {
   repeated BlockItem block_item_array = 3;
 }
 
-message CountTransactionByTimeRangeRequest {
+message CountByTimeRangeRequest {
   uint64 begin_timestamp = 1;
   uint64 end_timestamp = 2;
 }
 
-message CountTransactionByTimeRangeResponse {
+message CountByTimeRangeResponse {
   ReturnCode code = 1;
   string message = 2;
 
