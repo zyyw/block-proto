@@ -3,11 +3,46 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
+  rpc WalletGetTransactionList(WalletTxListRequest) returns (WalletTxListResponse) {}
+
   rpc CountTransactionByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
-  rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}  
+  rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
+}
+
+message WalletTxListRequest {
+  string account_address = 1;
+  string contract_address = 2;
+  uint32 page_number = 3;
+  uint32 page_size = 4;
+}
+
+message WalletTxListResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message TxItem {
+    string block_number = 1;
+    string timestamp = 2;
+    string transaction_hash = 3;
+    string nonce = 4;
+    string block_hash = 5;
+    string from = 6;
+    string contract_address = 7;
+    string to = 8;
+    uint64 value = 9;
+    string transaction_index = 10;
+    string gas = 11;
+    string gas_price = 12;
+    string gas_used = 13;
+    string cumulative_gas_used = 14;
+    string input = 15;
+    bool confirmed = 16;
+    int32 receipt_status = 17;
+  }
+  repeated TxItem tx_item_array = 3;
 }
 
 message CountTransactionByBlockNumberRequest {
