@@ -127,7 +127,54 @@ func (x WalletGetTokenListByTypeRequest_TokenListType) Number() protoreflect.Enu
 
 // Deprecated: Use WalletGetTokenListByTypeRequest_TokenListType.Descriptor instead.
 func (WalletGetTokenListByTypeRequest_TokenListType) EnumDescriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{0, 0}
+	return file_block_proto_rawDescGZIP(), []int{1, 0}
+}
+
+type TokenSearchRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Keyword string `protobuf:"bytes,1,opt,name=keyword,proto3" json:"keyword,omitempty"`
+}
+
+func (x *TokenSearchRequest) Reset() {
+	*x = TokenSearchRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TokenSearchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TokenSearchRequest) ProtoMessage() {}
+
+func (x *TokenSearchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TokenSearchRequest.ProtoReflect.Descriptor instead.
+func (*TokenSearchRequest) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *TokenSearchRequest) GetKeyword() string {
+	if x != nil {
+		return x.Keyword
+	}
+	return ""
 }
 
 type WalletGetTokenListByTypeRequest struct {
@@ -141,7 +188,7 @@ type WalletGetTokenListByTypeRequest struct {
 func (x *WalletGetTokenListByTypeRequest) Reset() {
 	*x = WalletGetTokenListByTypeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[0]
+		mi := &file_block_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -154,7 +201,7 @@ func (x *WalletGetTokenListByTypeRequest) String() string {
 func (*WalletGetTokenListByTypeRequest) ProtoMessage() {}
 
 func (x *WalletGetTokenListByTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[0]
+	mi := &file_block_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -167,7 +214,7 @@ func (x *WalletGetTokenListByTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletGetTokenListByTypeRequest.ProtoReflect.Descriptor instead.
 func (*WalletGetTokenListByTypeRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{0}
+	return file_block_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *WalletGetTokenListByTypeRequest) GetType() WalletGetTokenListByTypeRequest_TokenListType {
@@ -190,7 +237,7 @@ type WalletTokenListResponse struct {
 func (x *WalletTokenListResponse) Reset() {
 	*x = WalletTokenListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[1]
+		mi := &file_block_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -203,7 +250,7 @@ func (x *WalletTokenListResponse) String() string {
 func (*WalletTokenListResponse) ProtoMessage() {}
 
 func (x *WalletTokenListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[1]
+	mi := &file_block_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -216,7 +263,7 @@ func (x *WalletTokenListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletTokenListResponse.ProtoReflect.Descriptor instead.
 func (*WalletTokenListResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{1}
+	return file_block_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *WalletTokenListResponse) GetCode() ReturnCode {
@@ -254,7 +301,7 @@ type WalletTxListRequest struct {
 func (x *WalletTxListRequest) Reset() {
 	*x = WalletTxListRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[2]
+		mi := &file_block_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -267,7 +314,7 @@ func (x *WalletTxListRequest) String() string {
 func (*WalletTxListRequest) ProtoMessage() {}
 
 func (x *WalletTxListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[2]
+	mi := &file_block_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -280,7 +327,7 @@ func (x *WalletTxListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletTxListRequest.ProtoReflect.Descriptor instead.
 func (*WalletTxListRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{2}
+	return file_block_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *WalletTxListRequest) GetAccountAddress() string {
@@ -324,7 +371,7 @@ type WalletTxListResponse struct {
 func (x *WalletTxListResponse) Reset() {
 	*x = WalletTxListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[3]
+		mi := &file_block_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -337,7 +384,7 @@ func (x *WalletTxListResponse) String() string {
 func (*WalletTxListResponse) ProtoMessage() {}
 
 func (x *WalletTxListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[3]
+	mi := &file_block_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -350,7 +397,7 @@ func (x *WalletTxListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletTxListResponse.ProtoReflect.Descriptor instead.
 func (*WalletTxListResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{3}
+	return file_block_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *WalletTxListResponse) GetCode() ReturnCode {
@@ -385,7 +432,7 @@ type CountTransactionByBlockNumberRequest struct {
 func (x *CountTransactionByBlockNumberRequest) Reset() {
 	*x = CountTransactionByBlockNumberRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[4]
+		mi := &file_block_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -398,7 +445,7 @@ func (x *CountTransactionByBlockNumberRequest) String() string {
 func (*CountTransactionByBlockNumberRequest) ProtoMessage() {}
 
 func (x *CountTransactionByBlockNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[4]
+	mi := &file_block_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -411,7 +458,7 @@ func (x *CountTransactionByBlockNumberRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CountTransactionByBlockNumberRequest.ProtoReflect.Descriptor instead.
 func (*CountTransactionByBlockNumberRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{4}
+	return file_block_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CountTransactionByBlockNumberRequest) GetBlockNumber() uint64 {
@@ -434,7 +481,7 @@ type CountTransactionByBlockNumberResponse struct {
 func (x *CountTransactionByBlockNumberResponse) Reset() {
 	*x = CountTransactionByBlockNumberResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[5]
+		mi := &file_block_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -447,7 +494,7 @@ func (x *CountTransactionByBlockNumberResponse) String() string {
 func (*CountTransactionByBlockNumberResponse) ProtoMessage() {}
 
 func (x *CountTransactionByBlockNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[5]
+	mi := &file_block_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -460,7 +507,7 @@ func (x *CountTransactionByBlockNumberResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CountTransactionByBlockNumberResponse.ProtoReflect.Descriptor instead.
 func (*CountTransactionByBlockNumberResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{5}
+	return file_block_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CountTransactionByBlockNumberResponse) GetCode() ReturnCode {
@@ -495,7 +542,7 @@ type GetBlocksRequest struct {
 func (x *GetBlocksRequest) Reset() {
 	*x = GetBlocksRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[6]
+		mi := &file_block_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -508,7 +555,7 @@ func (x *GetBlocksRequest) String() string {
 func (*GetBlocksRequest) ProtoMessage() {}
 
 func (x *GetBlocksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[6]
+	mi := &file_block_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -521,7 +568,7 @@ func (x *GetBlocksRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlocksRequest.ProtoReflect.Descriptor instead.
 func (*GetBlocksRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{6}
+	return file_block_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetBlocksRequest) GetLimit() uint32 {
@@ -544,7 +591,7 @@ type GetBlocksResponse struct {
 func (x *GetBlocksResponse) Reset() {
 	*x = GetBlocksResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[7]
+		mi := &file_block_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -557,7 +604,7 @@ func (x *GetBlocksResponse) String() string {
 func (*GetBlocksResponse) ProtoMessage() {}
 
 func (x *GetBlocksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[7]
+	mi := &file_block_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -570,7 +617,7 @@ func (x *GetBlocksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlocksResponse.ProtoReflect.Descriptor instead.
 func (*GetBlocksResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{7}
+	return file_block_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetBlocksResponse) GetCode() ReturnCode {
@@ -606,7 +653,7 @@ type CountByTimeRangeRequest struct {
 func (x *CountByTimeRangeRequest) Reset() {
 	*x = CountByTimeRangeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[8]
+		mi := &file_block_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -619,7 +666,7 @@ func (x *CountByTimeRangeRequest) String() string {
 func (*CountByTimeRangeRequest) ProtoMessage() {}
 
 func (x *CountByTimeRangeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[8]
+	mi := &file_block_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -632,7 +679,7 @@ func (x *CountByTimeRangeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountByTimeRangeRequest.ProtoReflect.Descriptor instead.
 func (*CountByTimeRangeRequest) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{8}
+	return file_block_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CountByTimeRangeRequest) GetBeginTimestamp() uint64 {
@@ -662,7 +709,7 @@ type CountByTimeRangeResponse struct {
 func (x *CountByTimeRangeResponse) Reset() {
 	*x = CountByTimeRangeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[9]
+		mi := &file_block_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -675,7 +722,7 @@ func (x *CountByTimeRangeResponse) String() string {
 func (*CountByTimeRangeResponse) ProtoMessage() {}
 
 func (x *CountByTimeRangeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[9]
+	mi := &file_block_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -688,7 +735,7 @@ func (x *CountByTimeRangeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CountByTimeRangeResponse.ProtoReflect.Descriptor instead.
 func (*CountByTimeRangeResponse) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{9}
+	return file_block_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CountByTimeRangeResponse) GetCode() ReturnCode {
@@ -732,7 +779,7 @@ type WalletTokenListResponse_TokenItem struct {
 func (x *WalletTokenListResponse_TokenItem) Reset() {
 	*x = WalletTokenListResponse_TokenItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[10]
+		mi := &file_block_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -745,7 +792,7 @@ func (x *WalletTokenListResponse_TokenItem) String() string {
 func (*WalletTokenListResponse_TokenItem) ProtoMessage() {}
 
 func (x *WalletTokenListResponse_TokenItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[10]
+	mi := &file_block_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -758,7 +805,7 @@ func (x *WalletTokenListResponse_TokenItem) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use WalletTokenListResponse_TokenItem.ProtoReflect.Descriptor instead.
 func (*WalletTokenListResponse_TokenItem) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{1, 0}
+	return file_block_proto_rawDescGZIP(), []int{2, 0}
 }
 
 func (x *WalletTokenListResponse_TokenItem) GetSymbol() string {
@@ -858,7 +905,7 @@ type WalletTxListResponse_TxItem struct {
 func (x *WalletTxListResponse_TxItem) Reset() {
 	*x = WalletTxListResponse_TxItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[11]
+		mi := &file_block_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -871,7 +918,7 @@ func (x *WalletTxListResponse_TxItem) String() string {
 func (*WalletTxListResponse_TxItem) ProtoMessage() {}
 
 func (x *WalletTxListResponse_TxItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[11]
+	mi := &file_block_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -884,7 +931,7 @@ func (x *WalletTxListResponse_TxItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletTxListResponse_TxItem.ProtoReflect.Descriptor instead.
 func (*WalletTxListResponse_TxItem) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{3, 0}
+	return file_block_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *WalletTxListResponse_TxItem) GetBlockNumber() string {
@@ -1022,7 +1069,7 @@ type GetBlocksResponse_BlockItem struct {
 func (x *GetBlocksResponse_BlockItem) Reset() {
 	*x = GetBlocksResponse_BlockItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[12]
+		mi := &file_block_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1035,7 +1082,7 @@ func (x *GetBlocksResponse_BlockItem) String() string {
 func (*GetBlocksResponse_BlockItem) ProtoMessage() {}
 
 func (x *GetBlocksResponse_BlockItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[12]
+	mi := &file_block_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1048,7 +1095,7 @@ func (x *GetBlocksResponse_BlockItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBlocksResponse_BlockItem.ProtoReflect.Descriptor instead.
 func (*GetBlocksResponse_BlockItem) Descriptor() ([]byte, []int) {
-	return file_block_proto_rawDescGZIP(), []int{7, 0}
+	return file_block_proto_rawDescGZIP(), []int{8, 0}
 }
 
 func (x *GetBlocksResponse_BlockItem) GetBlockNumber() uint64 {
@@ -1097,7 +1144,10 @@ var File_block_proto protoreflect.FileDescriptor
 
 var file_block_proto_rawDesc = []byte{
 	0x0a, 0x0b, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x62,
-	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xa5, 0x01, 0x0a, 0x1f, 0x57,
+	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x2e, 0x0a, 0x12, 0x54, 0x6f,
+	0x6b, 0x65, 0x6e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x18, 0x0a, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f, 0x72, 0x64, 0x22, 0xa5, 0x01, 0x0a, 0x1f, 0x57,
 	0x61, 0x6c, 0x6c, 0x65, 0x74, 0x47, 0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73,
 	0x74, 0x42, 0x79, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x4e,
 	0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x3a, 0x2e, 0x62,
@@ -1253,56 +1303,62 @@ var file_block_proto_rawDesc = []byte{
 	0x0e, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10,
 	0x01, 0x12, 0x19, 0x0a, 0x15, 0x52, 0x45, 0x51, 0x55, 0x45, 0x53, 0x54, 0x5f, 0x50, 0x41, 0x52,
 	0x41, 0x4d, 0x5f, 0x49, 0x4c, 0x4c, 0x45, 0x47, 0x41, 0x4c, 0x10, 0x02, 0x12, 0x0f, 0x0a, 0x0b,
-	0x4f, 0x54, 0x48, 0x45, 0x52, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x63, 0x32, 0x83, 0x06,
+	0x4f, 0x54, 0x48, 0x45, 0x52, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x63, 0x32, 0xe1, 0x06,
 	0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70, 0x63, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x70, 0x0a, 0x18, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x47, 0x65, 0x74, 0x54,
-	0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x79, 0x54, 0x79, 0x70, 0x65, 0x12, 0x2c,
-	0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c,
-	0x6c, 0x65, 0x74, 0x47, 0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x42,
-	0x79, 0x54, 0x79, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x62,
+	0x63, 0x65, 0x12, 0x5c, 0x0a, 0x11, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65,
+	0x6e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x12, 0x1f, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x53, 0x65, 0x61, 0x72, 0x63,
+	0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
+	0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54, 0x6f, 0x6b,
+	0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x12, 0x70, 0x0a, 0x18, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x47, 0x65, 0x74, 0x54, 0x6f, 0x6b,
+	0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x79, 0x54, 0x79, 0x70, 0x65, 0x12, 0x2c, 0x2e, 0x62,
 	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65,
-	0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x61, 0x0a, 0x18, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x47, 0x65,
-	0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4c, 0x69, 0x73, 0x74,
-	0x12, 0x20, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57,
-	0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54, 0x78, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x21, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54, 0x78, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6c, 0x0a, 0x1b, 0x43, 0x6f, 0x75, 0x6e, 0x74,
-	0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x54, 0x69, 0x6d,
-	0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65,
-	0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x62,
-	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74,
-	0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4c, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63,
-	0x6b, 0x73, 0x12, 0x1d, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x1e, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
-	0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x12, 0x88, 0x01, 0x0a, 0x1d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61,
-	0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e,
-	0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x31, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d, 0x62, 0x65,
-	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
-	0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e,
-	0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75,
-	0x6d, 0x62, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x68,
-	0x0a, 0x17, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79,
-	0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63,
-	0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54,
-	0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x25, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f,
-	0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x69, 0x0a, 0x18, 0x43, 0x6f, 0x75, 0x6e,
-	0x74, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52,
+	0x74, 0x47, 0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x79, 0x54,
+	0x79, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54,
+	0x6f, 0x6b, 0x65, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x61, 0x0a, 0x18, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x47, 0x65, 0x74, 0x54,
+	0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x20,
+	0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c,
+	0x6c, 0x65, 0x74, 0x54, 0x78, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x21, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57,
+	0x61, 0x6c, 0x6c, 0x65, 0x74, 0x54, 0x78, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x6c, 0x0a, 0x1b, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72,
+	0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52,
 	0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61,
 	0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x62, 0x6c, 0x6f,
 	0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79,
 	0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x22, 0x00, 0x12, 0x4c, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73,
+	0x12, 0x1d, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x47,
+	0x65, 0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x1e, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x47, 0x65,
+	0x74, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x12, 0x88, 0x01, 0x0a, 0x1d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73,
+	0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d,
+	0x62, 0x65, 0x72, 0x12, 0x31, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x61,
+	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x42, 0x79, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x4e, 0x75, 0x6d, 0x62,
+	0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x68, 0x0a, 0x17,
+	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69,
+	0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d,
+	0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e,
+	0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e,
+	0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x69, 0x0a, 0x18, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x43,
+	0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e,
+	0x67, 0x65, 0x12, 0x24, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b,
+	0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x42, 0x79, 0x54, 0x69,
+	0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1318,50 +1374,53 @@ func file_block_proto_rawDescGZIP() []byte {
 }
 
 var file_block_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_block_proto_goTypes = []interface{}{
 	(ReturnCode)(0), // 0: block_proto.ReturnCode
 	(WalletGetTokenListByTypeRequest_TokenListType)(0), // 1: block_proto.WalletGetTokenListByTypeRequest.TokenListType
-	(*WalletGetTokenListByTypeRequest)(nil),            // 2: block_proto.WalletGetTokenListByTypeRequest
-	(*WalletTokenListResponse)(nil),                    // 3: block_proto.WalletTokenListResponse
-	(*WalletTxListRequest)(nil),                        // 4: block_proto.WalletTxListRequest
-	(*WalletTxListResponse)(nil),                       // 5: block_proto.WalletTxListResponse
-	(*CountTransactionByBlockNumberRequest)(nil),       // 6: block_proto.CountTransactionByBlockNumberRequest
-	(*CountTransactionByBlockNumberResponse)(nil),      // 7: block_proto.CountTransactionByBlockNumberResponse
-	(*GetBlocksRequest)(nil),                           // 8: block_proto.GetBlocksRequest
-	(*GetBlocksResponse)(nil),                          // 9: block_proto.GetBlocksResponse
-	(*CountByTimeRangeRequest)(nil),                    // 10: block_proto.CountByTimeRangeRequest
-	(*CountByTimeRangeResponse)(nil),                   // 11: block_proto.CountByTimeRangeResponse
-	(*WalletTokenListResponse_TokenItem)(nil),          // 12: block_proto.WalletTokenListResponse.TokenItem
-	(*WalletTxListResponse_TxItem)(nil),                // 13: block_proto.WalletTxListResponse.TxItem
-	(*GetBlocksResponse_BlockItem)(nil),                // 14: block_proto.GetBlocksResponse.BlockItem
+	(*TokenSearchRequest)(nil),                         // 2: block_proto.TokenSearchRequest
+	(*WalletGetTokenListByTypeRequest)(nil),            // 3: block_proto.WalletGetTokenListByTypeRequest
+	(*WalletTokenListResponse)(nil),                    // 4: block_proto.WalletTokenListResponse
+	(*WalletTxListRequest)(nil),                        // 5: block_proto.WalletTxListRequest
+	(*WalletTxListResponse)(nil),                       // 6: block_proto.WalletTxListResponse
+	(*CountTransactionByBlockNumberRequest)(nil),       // 7: block_proto.CountTransactionByBlockNumberRequest
+	(*CountTransactionByBlockNumberResponse)(nil),      // 8: block_proto.CountTransactionByBlockNumberResponse
+	(*GetBlocksRequest)(nil),                           // 9: block_proto.GetBlocksRequest
+	(*GetBlocksResponse)(nil),                          // 10: block_proto.GetBlocksResponse
+	(*CountByTimeRangeRequest)(nil),                    // 11: block_proto.CountByTimeRangeRequest
+	(*CountByTimeRangeResponse)(nil),                   // 12: block_proto.CountByTimeRangeResponse
+	(*WalletTokenListResponse_TokenItem)(nil),          // 13: block_proto.WalletTokenListResponse.TokenItem
+	(*WalletTxListResponse_TxItem)(nil),                // 14: block_proto.WalletTxListResponse.TxItem
+	(*GetBlocksResponse_BlockItem)(nil),                // 15: block_proto.GetBlocksResponse.BlockItem
 }
 var file_block_proto_depIdxs = []int32{
 	1,  // 0: block_proto.WalletGetTokenListByTypeRequest.type:type_name -> block_proto.WalletGetTokenListByTypeRequest.TokenListType
 	0,  // 1: block_proto.WalletTokenListResponse.code:type_name -> block_proto.ReturnCode
-	12, // 2: block_proto.WalletTokenListResponse.token_item_array:type_name -> block_proto.WalletTokenListResponse.TokenItem
+	13, // 2: block_proto.WalletTokenListResponse.token_item_array:type_name -> block_proto.WalletTokenListResponse.TokenItem
 	0,  // 3: block_proto.WalletTxListResponse.code:type_name -> block_proto.ReturnCode
-	13, // 4: block_proto.WalletTxListResponse.tx_item_array:type_name -> block_proto.WalletTxListResponse.TxItem
+	14, // 4: block_proto.WalletTxListResponse.tx_item_array:type_name -> block_proto.WalletTxListResponse.TxItem
 	0,  // 5: block_proto.CountTransactionByBlockNumberResponse.code:type_name -> block_proto.ReturnCode
 	0,  // 6: block_proto.GetBlocksResponse.code:type_name -> block_proto.ReturnCode
-	14, // 7: block_proto.GetBlocksResponse.block_item_array:type_name -> block_proto.GetBlocksResponse.BlockItem
+	15, // 7: block_proto.GetBlocksResponse.block_item_array:type_name -> block_proto.GetBlocksResponse.BlockItem
 	0,  // 8: block_proto.CountByTimeRangeResponse.code:type_name -> block_proto.ReturnCode
-	2,  // 9: block_proto.BlockGrpcService.WalletGetTokenListByType:input_type -> block_proto.WalletGetTokenListByTypeRequest
-	4,  // 10: block_proto.BlockGrpcService.WalletGetTransactionList:input_type -> block_proto.WalletTxListRequest
-	10, // 11: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	8,  // 12: block_proto.BlockGrpcService.GetBlocks:input_type -> block_proto.GetBlocksRequest
-	6,  // 13: block_proto.BlockGrpcService.CountTransactionByBlockNumber:input_type -> block_proto.CountTransactionByBlockNumberRequest
-	10, // 14: block_proto.BlockGrpcService.CountAccountByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	10, // 15: block_proto.BlockGrpcService.CountContractByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	3,  // 16: block_proto.BlockGrpcService.WalletGetTokenListByType:output_type -> block_proto.WalletTokenListResponse
-	5,  // 17: block_proto.BlockGrpcService.WalletGetTransactionList:output_type -> block_proto.WalletTxListResponse
-	11, // 18: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	9,  // 19: block_proto.BlockGrpcService.GetBlocks:output_type -> block_proto.GetBlocksResponse
-	7,  // 20: block_proto.BlockGrpcService.CountTransactionByBlockNumber:output_type -> block_proto.CountTransactionByBlockNumberResponse
-	11, // 21: block_proto.BlockGrpcService.CountAccountByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	11, // 22: block_proto.BlockGrpcService.CountContractByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	16, // [16:23] is the sub-list for method output_type
-	9,  // [9:16] is the sub-list for method input_type
+	2,  // 9: block_proto.BlockGrpcService.WalletTokenSearch:input_type -> block_proto.TokenSearchRequest
+	3,  // 10: block_proto.BlockGrpcService.WalletGetTokenListByType:input_type -> block_proto.WalletGetTokenListByTypeRequest
+	5,  // 11: block_proto.BlockGrpcService.WalletGetTransactionList:input_type -> block_proto.WalletTxListRequest
+	11, // 12: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	9,  // 13: block_proto.BlockGrpcService.GetBlocks:input_type -> block_proto.GetBlocksRequest
+	7,  // 14: block_proto.BlockGrpcService.CountTransactionByBlockNumber:input_type -> block_proto.CountTransactionByBlockNumberRequest
+	11, // 15: block_proto.BlockGrpcService.CountAccountByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	11, // 16: block_proto.BlockGrpcService.CountContractByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	4,  // 17: block_proto.BlockGrpcService.WalletTokenSearch:output_type -> block_proto.WalletTokenListResponse
+	4,  // 18: block_proto.BlockGrpcService.WalletGetTokenListByType:output_type -> block_proto.WalletTokenListResponse
+	6,  // 19: block_proto.BlockGrpcService.WalletGetTransactionList:output_type -> block_proto.WalletTxListResponse
+	12, // 20: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	10, // 21: block_proto.BlockGrpcService.GetBlocks:output_type -> block_proto.GetBlocksResponse
+	8,  // 22: block_proto.BlockGrpcService.CountTransactionByBlockNumber:output_type -> block_proto.CountTransactionByBlockNumberResponse
+	12, // 23: block_proto.BlockGrpcService.CountAccountByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	12, // 24: block_proto.BlockGrpcService.CountContractByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	17, // [17:25] is the sub-list for method output_type
+	9,  // [9:17] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name
 	9,  // [9:9] is the sub-list for extension extendee
 	0,  // [0:9] is the sub-list for field type_name
@@ -1374,7 +1433,7 @@ func file_block_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_block_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletGetTokenListByTypeRequest); i {
+			switch v := v.(*TokenSearchRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1386,7 +1445,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenListResponse); i {
+			switch v := v.(*WalletGetTokenListByTypeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1398,7 +1457,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTxListRequest); i {
+			switch v := v.(*WalletTokenListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1410,7 +1469,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTxListResponse); i {
+			switch v := v.(*WalletTxListRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1422,7 +1481,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CountTransactionByBlockNumberRequest); i {
+			switch v := v.(*WalletTxListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1434,7 +1493,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CountTransactionByBlockNumberResponse); i {
+			switch v := v.(*CountTransactionByBlockNumberRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1446,7 +1505,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBlocksRequest); i {
+			switch v := v.(*CountTransactionByBlockNumberResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1458,7 +1517,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBlocksResponse); i {
+			switch v := v.(*GetBlocksRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1470,7 +1529,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CountByTimeRangeRequest); i {
+			switch v := v.(*GetBlocksResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1482,7 +1541,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CountByTimeRangeResponse); i {
+			switch v := v.(*CountByTimeRangeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1494,7 +1553,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenListResponse_TokenItem); i {
+			switch v := v.(*CountByTimeRangeResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1506,7 +1565,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTxListResponse_TxItem); i {
+			switch v := v.(*WalletTokenListResponse_TokenItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1518,6 +1577,18 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WalletTxListResponse_TxItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetBlocksResponse_BlockItem); i {
 			case 0:
 				return &v.state
@@ -1536,7 +1607,7 @@ func file_block_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_block_proto_rawDesc,
 			NumEnums:      2,
-			NumMessages:   13,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -1563,6 +1634,7 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BlockGrpcServiceClient interface {
+	WalletTokenSearch(ctx context.Context, in *TokenSearchRequest, opts ...grpc.CallOption) (*WalletTokenListResponse, error)
 	WalletGetTokenListByType(ctx context.Context, in *WalletGetTokenListByTypeRequest, opts ...grpc.CallOption) (*WalletTokenListResponse, error)
 	WalletGetTransactionList(ctx context.Context, in *WalletTxListRequest, opts ...grpc.CallOption) (*WalletTxListResponse, error)
 	CountTransactionByTimeRange(ctx context.Context, in *CountByTimeRangeRequest, opts ...grpc.CallOption) (*CountByTimeRangeResponse, error)
@@ -1578,6 +1650,15 @@ type blockGrpcServiceClient struct {
 
 func NewBlockGrpcServiceClient(cc grpc.ClientConnInterface) BlockGrpcServiceClient {
 	return &blockGrpcServiceClient{cc}
+}
+
+func (c *blockGrpcServiceClient) WalletTokenSearch(ctx context.Context, in *TokenSearchRequest, opts ...grpc.CallOption) (*WalletTokenListResponse, error) {
+	out := new(WalletTokenListResponse)
+	err := c.cc.Invoke(ctx, "/block_proto.BlockGrpcService/WalletTokenSearch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *blockGrpcServiceClient) WalletGetTokenListByType(ctx context.Context, in *WalletGetTokenListByTypeRequest, opts ...grpc.CallOption) (*WalletTokenListResponse, error) {
@@ -1645,6 +1726,7 @@ func (c *blockGrpcServiceClient) CountContractByTimeRange(ctx context.Context, i
 
 // BlockGrpcServiceServer is the server API for BlockGrpcService service.
 type BlockGrpcServiceServer interface {
+	WalletTokenSearch(context.Context, *TokenSearchRequest) (*WalletTokenListResponse, error)
 	WalletGetTokenListByType(context.Context, *WalletGetTokenListByTypeRequest) (*WalletTokenListResponse, error)
 	WalletGetTransactionList(context.Context, *WalletTxListRequest) (*WalletTxListResponse, error)
 	CountTransactionByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error)
@@ -1658,6 +1740,9 @@ type BlockGrpcServiceServer interface {
 type UnimplementedBlockGrpcServiceServer struct {
 }
 
+func (*UnimplementedBlockGrpcServiceServer) WalletTokenSearch(context.Context, *TokenSearchRequest) (*WalletTokenListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WalletTokenSearch not implemented")
+}
 func (*UnimplementedBlockGrpcServiceServer) WalletGetTokenListByType(context.Context, *WalletGetTokenListByTypeRequest) (*WalletTokenListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WalletGetTokenListByType not implemented")
 }
@@ -1682,6 +1767,24 @@ func (*UnimplementedBlockGrpcServiceServer) CountContractByTimeRange(context.Con
 
 func RegisterBlockGrpcServiceServer(s *grpc.Server, srv BlockGrpcServiceServer) {
 	s.RegisterService(&_BlockGrpcService_serviceDesc, srv)
+}
+
+func _BlockGrpcService_WalletTokenSearch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TokenSearchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockGrpcServiceServer).WalletTokenSearch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/block_proto.BlockGrpcService/WalletTokenSearch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockGrpcServiceServer).WalletTokenSearch(ctx, req.(*TokenSearchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _BlockGrpcService_WalletGetTokenListByType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1814,6 +1917,10 @@ var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "block_proto.BlockGrpcService",
 	HandlerType: (*BlockGrpcServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "WalletTokenSearch",
+			Handler:    _BlockGrpcService_WalletTokenSearch_Handler,
+		},
 		{
 			MethodName: "WalletGetTokenListByType",
 			Handler:    _BlockGrpcService_WalletGetTokenListByType_Handler,
