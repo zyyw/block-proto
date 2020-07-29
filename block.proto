@@ -3,6 +3,7 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
+  rpc WalletTokenUpdated(TokenUpdatedRequest) returns (WalletTokenListResponse) {}
   rpc WalletTokenSearch(TokenSearchRequest) returns (WalletTokenListResponse) {}
   rpc WalletGetTokenListByType(WalletGetTokenListByTypeRequest) returns (WalletTokenListResponse) {}
   rpc WalletGetTransactionList(WalletTxListRequest) returns (WalletTxListResponse) {}
@@ -12,6 +13,10 @@ service BlockGrpcService {
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
+}
+
+message TokenUpdatedRequest {
+  uint32 version = 1;
 }
 
 message TokenSearchRequest {
