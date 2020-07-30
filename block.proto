@@ -3,7 +3,7 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
-  rpc WalletTokenUpdated(TokenUpdatedRequest) returns (WalletTokenListResponse) {}
+  rpc WalletTokenUpdated(TokenUpdatedRequest) returns (WalletUpdatedTokenListResponse) {}
   rpc WalletTokenSearch(TokenSearchRequest) returns (WalletTokenListResponse) {}
   rpc WalletGetTokenListByType(WalletGetTokenListByTypeRequest) returns (WalletTokenListResponse) {}
   rpc WalletGetTransactionList(WalletTxListRequest) returns (WalletTxListResponse) {}
@@ -17,6 +17,26 @@ service BlockGrpcService {
 
 message TokenUpdatedRequest {
   uint32 version = 1;
+}
+
+message WalletUpdatedTokenListResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message TokenItem {
+    string symbol = 1;
+    string name = 2;
+    string contract_address = 3;
+    string gas_limit = 4;
+    uint32 decimal = 5;
+    string icon = 6;
+    bool is_popular = 7;
+    bool add_by_default = 8;
+    string token_type = 9;
+    uint32 version = 10;
+  }
+  repeated TokenItem token_item_array = 3;
+  uint32 LatestVersion = 4;
 }
 
 message TokenSearchRequest {
