@@ -36,7 +36,7 @@ message WalletUpdatedTokenListResponse {
     uint32 version = 10;
   }
   repeated TokenItem token_item_array = 3;
-  uint32 LatestVersion = 4;
+  uint32 latest_version = 4;
 }
 
 message TokenSearchRequest {
