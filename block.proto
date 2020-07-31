@@ -92,7 +92,7 @@ message WalletTxListResponse {
     string from = 6;
     string contract_address = 7;
     string to = 8;
-    uint64 value = 9;
+    string value = 9;
     string transaction_index = 10;
     string gas = 11;
     string gas_price = 12;
