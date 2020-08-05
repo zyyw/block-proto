@@ -3,12 +3,14 @@ syntax = "proto3";
 package block_proto;
 
 service BlockGrpcService {
-  rpc WalletTxDetails(TxDetailsRequest) returns (WalletTxListResponse) {}
-  rpc WalletTokenUpdated(TokenUpdatedRequest) returns (WalletTokenListAndVersionResponse) {}
-  rpc WalletTokenSearch(TokenSearchRequest) returns (WalletTokenListResponse) {}
+  // wallet rpc
+  rpc WalletTxDetails(WalletTxDetailsRequest) returns (WalletTxListResponse) {}
+  rpc WalletTokenUpdated(WalletTokenUpdatedRequest) returns (WalletTokenListAndVersionResponse) {}
+  rpc WalletTokenSearch(WalletTokenSearchRequest) returns (WalletTokenListResponse) {}
   rpc WalletGetTokenListByType(WalletGetTokenListByTypeRequest) returns (WalletTokenListAndVersionResponse) {}
   rpc WalletGetTransactionList(WalletTxListRequest) returns (WalletTxListResponse) {}
 
+  // block explorer
   rpc CountTransactionByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc GetBlocks(GetBlocksRequest) returns (GetBlocksResponse) {}
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
@@ -16,11 +18,11 @@ service BlockGrpcService {
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
 }
 
-message TxDetailsRequest {
+message WalletTxDetailsRequest {
   string tx_hash = 1;
 }
 
-message TokenUpdatedRequest {
+message WalletTokenUpdatedRequest {
   uint32 version = 1;
 }
 
@@ -44,7 +46,7 @@ message WalletTokenListAndVersionResponse {
   uint32 latest_version = 4;
 }
 
-message TokenSearchRequest {
+message WalletTokenSearchRequest {
   string keyword = 1;
 }
 
