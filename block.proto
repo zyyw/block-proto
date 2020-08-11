@@ -4,6 +4,7 @@ package block_proto;
 
 service BlockGrpcService {
   // wallet rpc
+  rpc WalletTokenPrice(WalletTokenPriceRequest) returns (WalletTokenPriceResponse) {}
   rpc WalletTxDetails(WalletTxDetailsRequest) returns (WalletTxListResponse) {}
   rpc WalletTokenUpdated(WalletTokenUpdatedRequest) returns (WalletTokenListAndVersionResponse) {}
   rpc WalletTokenSearch(WalletTokenSearchRequest) returns (WalletTokenListResponse) {}
@@ -16,6 +17,27 @@ service BlockGrpcService {
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
+}
+
+message WalletTokenPriceRequest {
+  message TokenData {
+    string contract_address = 1;
+    string symbol = 2;
+  }
+
+  repeated TokenData token_data_array = 1;
+}
+
+message WalletTokenPriceResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message TokenPriceData {
+    string contract_address = 1;
+    string symbol = 2;
+    string price = 3;
+  }
+  repeated TokenPriceData token_price_data_array = 3;
 }
 
 message WalletTxDetailsRequest {
