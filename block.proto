@@ -17,7 +17,7 @@ service BlockGrpcService {
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
-  rpc ApiVerifyTokenContract(ApiVerifyTokenContractRequest) returns (ApiVerifyTokenContractResponse) {}
+  rpc ApiVerifyTokenSymbol(ApiVerifyTokenContractRequest) returns (ApiVerifyTokenContractResponse) {}
 }
 
 // wallet

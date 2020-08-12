@@ -2026,7 +2026,7 @@ var file_block_proto_rawDesc = []byte{
 	0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x12, 0x19, 0x0a, 0x15, 0x52, 0x45, 0x51, 0x55, 0x45,
 	0x53, 0x54, 0x5f, 0x50, 0x41, 0x52, 0x41, 0x4d, 0x5f, 0x49, 0x4c, 0x4c, 0x45, 0x47, 0x41, 0x4c,
 	0x10, 0x02, 0x12, 0x0f, 0x0a, 0x0b, 0x4f, 0x54, 0x48, 0x45, 0x52, 0x5f, 0x45, 0x52, 0x52, 0x4f,
-	0x52, 0x10, 0x63, 0x32, 0x96, 0x0a, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70,
+	0x52, 0x10, 0x63, 0x32, 0x94, 0x0a, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70,
 	0x63, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x61, 0x0a, 0x10, 0x57, 0x61, 0x6c, 0x6c,
 	0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12, 0x24, 0x2e, 0x62,
 	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65,
@@ -2100,15 +2100,15 @@ var file_block_proto_rawDesc = []byte{
 	0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25,
 	0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75,
 	0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x73, 0x0a, 0x16, 0x41, 0x70, 0x69, 0x56, 0x65,
-	0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63,
-	0x74, 0x12, 0x2a, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
-	0x41, 0x70, 0x69, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f,
-	0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e,
-	0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x70, 0x69, 0x56,
-	0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61,
-	0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x71, 0x0a, 0x14, 0x41, 0x70, 0x69, 0x56, 0x65,
+	0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x53, 0x79, 0x6d, 0x62, 0x6f, 0x6c, 0x12,
+	0x2a, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x70,
+	0x69, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74,
+	0x72, 0x61, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x62, 0x6c,
+	0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x70, 0x69, 0x56, 0x65, 0x72,
+	0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -2180,7 +2180,7 @@ var file_block_proto_depIdxs = []int32{
 	12, // 23: block_proto.BlockGrpcService.CountTransactionByBlockNumber:input_type -> block_proto.CountTransactionByBlockNumberRequest
 	16, // 24: block_proto.BlockGrpcService.CountAccountByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
 	16, // 25: block_proto.BlockGrpcService.CountContractByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	18, // 26: block_proto.BlockGrpcService.ApiVerifyTokenContract:input_type -> block_proto.ApiVerifyTokenContractRequest
+	18, // 26: block_proto.BlockGrpcService.ApiVerifyTokenSymbol:input_type -> block_proto.ApiVerifyTokenContractRequest
 	3,  // 27: block_proto.BlockGrpcService.WalletTokenPrice:output_type -> block_proto.WalletTokenPriceResponse
 	11, // 28: block_proto.BlockGrpcService.WalletTxDetails:output_type -> block_proto.WalletTxListResponse
 	6,  // 29: block_proto.BlockGrpcService.WalletTokenUpdated:output_type -> block_proto.WalletTokenListAndVersionResponse
@@ -2192,7 +2192,7 @@ var file_block_proto_depIdxs = []int32{
 	13, // 35: block_proto.BlockGrpcService.CountTransactionByBlockNumber:output_type -> block_proto.CountTransactionByBlockNumberResponse
 	17, // 36: block_proto.BlockGrpcService.CountAccountByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
 	17, // 37: block_proto.BlockGrpcService.CountContractByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	19, // 38: block_proto.BlockGrpcService.ApiVerifyTokenContract:output_type -> block_proto.ApiVerifyTokenContractResponse
+	19, // 38: block_proto.BlockGrpcService.ApiVerifyTokenSymbol:output_type -> block_proto.ApiVerifyTokenContractResponse
 	27, // [27:39] is the sub-list for method output_type
 	15, // [15:27] is the sub-list for method input_type
 	15, // [15:15] is the sub-list for extension type_name
@@ -2541,7 +2541,7 @@ type BlockGrpcServiceClient interface {
 	CountTransactionByBlockNumber(ctx context.Context, in *CountTransactionByBlockNumberRequest, opts ...grpc.CallOption) (*CountTransactionByBlockNumberResponse, error)
 	CountAccountByTimeRange(ctx context.Context, in *CountByTimeRangeRequest, opts ...grpc.CallOption) (*CountByTimeRangeResponse, error)
 	CountContractByTimeRange(ctx context.Context, in *CountByTimeRangeRequest, opts ...grpc.CallOption) (*CountByTimeRangeResponse, error)
-	ApiVerifyTokenContract(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error)
+	ApiVerifyTokenSymbol(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error)
 }
 
 type blockGrpcServiceClient struct {
@@ -2651,9 +2651,9 @@ func (c *blockGrpcServiceClient) CountContractByTimeRange(ctx context.Context, i
 	return out, nil
 }
 
-func (c *blockGrpcServiceClient) ApiVerifyTokenContract(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error) {
+func (c *blockGrpcServiceClient) ApiVerifyTokenSymbol(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error) {
 	out := new(ApiVerifyTokenContractResponse)
-	err := c.cc.Invoke(ctx, "/block_proto.BlockGrpcService/ApiVerifyTokenContract", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/block_proto.BlockGrpcService/ApiVerifyTokenSymbol", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2675,7 +2675,7 @@ type BlockGrpcServiceServer interface {
 	CountTransactionByBlockNumber(context.Context, *CountTransactionByBlockNumberRequest) (*CountTransactionByBlockNumberResponse, error)
 	CountAccountByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error)
 	CountContractByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error)
-	ApiVerifyTokenContract(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error)
+	ApiVerifyTokenSymbol(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error)
 }
 
 // UnimplementedBlockGrpcServiceServer can be embedded to have forward compatible implementations.
@@ -2715,8 +2715,8 @@ func (*UnimplementedBlockGrpcServiceServer) CountAccountByTimeRange(context.Cont
 func (*UnimplementedBlockGrpcServiceServer) CountContractByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CountContractByTimeRange not implemented")
 }
-func (*UnimplementedBlockGrpcServiceServer) ApiVerifyTokenContract(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ApiVerifyTokenContract not implemented")
+func (*UnimplementedBlockGrpcServiceServer) ApiVerifyTokenSymbol(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApiVerifyTokenSymbol not implemented")
 }
 
 func RegisterBlockGrpcServiceServer(s *grpc.Server, srv BlockGrpcServiceServer) {
@@ -2921,20 +2921,20 @@ func _BlockGrpcService_CountContractByTimeRange_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlockGrpcService_ApiVerifyTokenContract_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BlockGrpcService_ApiVerifyTokenSymbol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApiVerifyTokenContractRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlockGrpcServiceServer).ApiVerifyTokenContract(ctx, in)
+		return srv.(BlockGrpcServiceServer).ApiVerifyTokenSymbol(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/block_proto.BlockGrpcService/ApiVerifyTokenContract",
+		FullMethod: "/block_proto.BlockGrpcService/ApiVerifyTokenSymbol",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlockGrpcServiceServer).ApiVerifyTokenContract(ctx, req.(*ApiVerifyTokenContractRequest))
+		return srv.(BlockGrpcServiceServer).ApiVerifyTokenSymbol(ctx, req.(*ApiVerifyTokenContractRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2988,8 +2988,8 @@ var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _BlockGrpcService_CountContractByTimeRange_Handler,
 		},
 		{
-			MethodName: "ApiVerifyTokenContract",
-			Handler:    _BlockGrpcService_ApiVerifyTokenContract_Handler,
+			MethodName: "ApiVerifyTokenSymbol",
+			Handler:    _BlockGrpcService_ApiVerifyTokenSymbol_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
