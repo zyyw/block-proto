@@ -130,6 +130,7 @@ func (WalletGetTokenListByTypeRequest_TokenListType) EnumDescriptor() ([]byte, [
 	return file_block_proto_rawDescGZIP(), []int{6, 0}
 }
 
+// wallet
 type WalletTokenPriceRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -696,6 +697,7 @@ func (x *WalletTxListResponse) GetTxItemArray() []*WalletTxListResponse_TxItem {
 	return nil
 }
 
+// block explorer (api)
 type CountTransactionByBlockNumberRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1034,6 +1036,124 @@ func (x *CountByTimeRangeResponse) GetCount() uint64 {
 	return 0
 }
 
+type ApiVerifyTokenContractRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TokenSymbol string `protobuf:"bytes,1,opt,name=token_symbol,json=tokenSymbol,proto3" json:"token_symbol,omitempty"`
+}
+
+func (x *ApiVerifyTokenContractRequest) Reset() {
+	*x = ApiVerifyTokenContractRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ApiVerifyTokenContractRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiVerifyTokenContractRequest) ProtoMessage() {}
+
+func (x *ApiVerifyTokenContractRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApiVerifyTokenContractRequest.ProtoReflect.Descriptor instead.
+func (*ApiVerifyTokenContractRequest) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ApiVerifyTokenContractRequest) GetTokenSymbol() string {
+	if x != nil {
+		return x.TokenSymbol
+	}
+	return ""
+}
+
+type ApiVerifyTokenContractResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Code                 ReturnCode `protobuf:"varint,1,opt,name=code,proto3,enum=block_proto.ReturnCode" json:"code,omitempty"`
+	Message              string     `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	IsVerifiedToken      bool       `protobuf:"varint,3,opt,name=is_verified_token,json=isVerifiedToken,proto3" json:"is_verified_token,omitempty"`
+	TokenContractAddress string     `protobuf:"bytes,4,opt,name=token_contract_address,json=tokenContractAddress,proto3" json:"token_contract_address,omitempty"`
+}
+
+func (x *ApiVerifyTokenContractResponse) Reset() {
+	*x = ApiVerifyTokenContractResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_block_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ApiVerifyTokenContractResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiVerifyTokenContractResponse) ProtoMessage() {}
+
+func (x *ApiVerifyTokenContractResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_block_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApiVerifyTokenContractResponse.ProtoReflect.Descriptor instead.
+func (*ApiVerifyTokenContractResponse) Descriptor() ([]byte, []int) {
+	return file_block_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ApiVerifyTokenContractResponse) GetCode() ReturnCode {
+	if x != nil {
+		return x.Code
+	}
+	return ReturnCode_OK
+}
+
+func (x *ApiVerifyTokenContractResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *ApiVerifyTokenContractResponse) GetIsVerifiedToken() bool {
+	if x != nil {
+		return x.IsVerifiedToken
+	}
+	return false
+}
+
+func (x *ApiVerifyTokenContractResponse) GetTokenContractAddress() string {
+	if x != nil {
+		return x.TokenContractAddress
+	}
+	return ""
+}
+
 type WalletTokenPriceRequest_TokenData struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1046,7 +1166,7 @@ type WalletTokenPriceRequest_TokenData struct {
 func (x *WalletTokenPriceRequest_TokenData) Reset() {
 	*x = WalletTokenPriceRequest_TokenData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[16]
+		mi := &file_block_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1059,7 +1179,7 @@ func (x *WalletTokenPriceRequest_TokenData) String() string {
 func (*WalletTokenPriceRequest_TokenData) ProtoMessage() {}
 
 func (x *WalletTokenPriceRequest_TokenData) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[16]
+	mi := &file_block_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1102,7 +1222,7 @@ type WalletTokenPriceResponse_TokenPriceData struct {
 func (x *WalletTokenPriceResponse_TokenPriceData) Reset() {
 	*x = WalletTokenPriceResponse_TokenPriceData{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[17]
+		mi := &file_block_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1115,7 +1235,7 @@ func (x *WalletTokenPriceResponse_TokenPriceData) String() string {
 func (*WalletTokenPriceResponse_TokenPriceData) ProtoMessage() {}
 
 func (x *WalletTokenPriceResponse_TokenPriceData) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[17]
+	mi := &file_block_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1172,7 +1292,7 @@ type WalletTokenListAndVersionResponse_TokenItem struct {
 func (x *WalletTokenListAndVersionResponse_TokenItem) Reset() {
 	*x = WalletTokenListAndVersionResponse_TokenItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[18]
+		mi := &file_block_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1185,7 +1305,7 @@ func (x *WalletTokenListAndVersionResponse_TokenItem) String() string {
 func (*WalletTokenListAndVersionResponse_TokenItem) ProtoMessage() {}
 
 func (x *WalletTokenListAndVersionResponse_TokenItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[18]
+	mi := &file_block_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1291,7 +1411,7 @@ type WalletTokenListResponse_TokenItem struct {
 func (x *WalletTokenListResponse_TokenItem) Reset() {
 	*x = WalletTokenListResponse_TokenItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[19]
+		mi := &file_block_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1304,7 +1424,7 @@ func (x *WalletTokenListResponse_TokenItem) String() string {
 func (*WalletTokenListResponse_TokenItem) ProtoMessage() {}
 
 func (x *WalletTokenListResponse_TokenItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[19]
+	mi := &file_block_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1417,7 +1537,7 @@ type WalletTxListResponse_TxItem struct {
 func (x *WalletTxListResponse_TxItem) Reset() {
 	*x = WalletTxListResponse_TxItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[20]
+		mi := &file_block_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1430,7 +1550,7 @@ func (x *WalletTxListResponse_TxItem) String() string {
 func (*WalletTxListResponse_TxItem) ProtoMessage() {}
 
 func (x *WalletTxListResponse_TxItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[20]
+	mi := &file_block_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1581,7 +1701,7 @@ type GetBlocksResponse_BlockItem struct {
 func (x *GetBlocksResponse_BlockItem) Reset() {
 	*x = GetBlocksResponse_BlockItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_block_proto_msgTypes[21]
+		mi := &file_block_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1594,7 +1714,7 @@ func (x *GetBlocksResponse_BlockItem) String() string {
 func (*GetBlocksResponse_BlockItem) ProtoMessage() {}
 
 func (x *GetBlocksResponse_BlockItem) ProtoReflect() protoreflect.Message {
-	mi := &file_block_proto_msgTypes[21]
+	mi := &file_block_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1883,13 +2003,30 @@ var file_block_proto_rawDesc = []byte{
 	0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a,
 	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
 	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2a, 0x54, 0x0a,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x42, 0x0a,
+	0x1d, 0x41, 0x70, 0x69, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43,
+	0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x21,
+	0x0a, 0x0c, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x5f, 0x73, 0x79, 0x6d, 0x62, 0x6f, 0x6c, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x53, 0x79, 0x6d, 0x62, 0x6f,
+	0x6c, 0x22, 0xc9, 0x01, 0x0a, 0x1e, 0x41, 0x70, 0x69, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x54,
+	0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0e, 0x32, 0x17, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2e, 0x52, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x04, 0x63, 0x6f, 0x64,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x2a, 0x0a, 0x11, 0x69,
+	0x73, 0x5f, 0x76, 0x65, 0x72, 0x69, 0x66, 0x69, 0x65, 0x64, 0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0f, 0x69, 0x73, 0x56, 0x65, 0x72, 0x69, 0x66, 0x69,
+	0x65, 0x64, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x34, 0x0a, 0x16, 0x74, 0x6f, 0x6b, 0x65, 0x6e,
+	0x5f, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x5f, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
+	0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f,
+	0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2a, 0x54, 0x0a,
 	0x0a, 0x52, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x06, 0x0a, 0x02, 0x4f,
 	0x4b, 0x10, 0x00, 0x12, 0x12, 0x0a, 0x0e, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c, 0x5f,
 	0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x12, 0x19, 0x0a, 0x15, 0x52, 0x45, 0x51, 0x55, 0x45,
 	0x53, 0x54, 0x5f, 0x50, 0x41, 0x52, 0x41, 0x4d, 0x5f, 0x49, 0x4c, 0x4c, 0x45, 0x47, 0x41, 0x4c,
 	0x10, 0x02, 0x12, 0x0f, 0x0a, 0x0b, 0x4f, 0x54, 0x48, 0x45, 0x52, 0x5f, 0x45, 0x52, 0x52, 0x4f,
-	0x52, 0x10, 0x63, 0x32, 0xa1, 0x09, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70,
+	0x52, 0x10, 0x63, 0x32, 0x96, 0x0a, 0x0a, 0x10, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x47, 0x72, 0x70,
 	0x63, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x61, 0x0a, 0x10, 0x57, 0x61, 0x6c, 0x6c,
 	0x65, 0x74, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12, 0x24, 0x2e, 0x62,
 	0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x57, 0x61, 0x6c, 0x6c, 0x65,
@@ -1963,7 +2100,15 @@ var file_block_proto_rawDesc = []byte{
 	0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25,
 	0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x6f, 0x75,
 	0x6e, 0x74, 0x42, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x73, 0x0a, 0x16, 0x41, 0x70, 0x69, 0x56, 0x65,
+	0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63,
+	0x74, 0x12, 0x2a, 0x2e, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x41, 0x70, 0x69, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f,
+	0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e,
+	0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x5f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x70, 0x69, 0x56,
+	0x65, 0x72, 0x69, 0x66, 0x79, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61,
+	0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1979,7 +2124,7 @@ func file_block_proto_rawDescGZIP() []byte {
 }
 
 var file_block_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_block_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
 var file_block_proto_goTypes = []interface{}{
 	(ReturnCode)(0), // 0: block_proto.ReturnCode
 	(WalletGetTokenListByTypeRequest_TokenListType)(0),  // 1: block_proto.WalletGetTokenListByTypeRequest.TokenListType
@@ -1999,55 +2144,60 @@ var file_block_proto_goTypes = []interface{}{
 	(*GetBlocksResponse)(nil),                           // 15: block_proto.GetBlocksResponse
 	(*CountByTimeRangeRequest)(nil),                     // 16: block_proto.CountByTimeRangeRequest
 	(*CountByTimeRangeResponse)(nil),                    // 17: block_proto.CountByTimeRangeResponse
-	(*WalletTokenPriceRequest_TokenData)(nil),           // 18: block_proto.WalletTokenPriceRequest.TokenData
-	(*WalletTokenPriceResponse_TokenPriceData)(nil),     // 19: block_proto.WalletTokenPriceResponse.TokenPriceData
-	(*WalletTokenListAndVersionResponse_TokenItem)(nil), // 20: block_proto.WalletTokenListAndVersionResponse.TokenItem
-	(*WalletTokenListResponse_TokenItem)(nil),           // 21: block_proto.WalletTokenListResponse.TokenItem
-	(*WalletTxListResponse_TxItem)(nil),                 // 22: block_proto.WalletTxListResponse.TxItem
-	(*GetBlocksResponse_BlockItem)(nil),                 // 23: block_proto.GetBlocksResponse.BlockItem
+	(*ApiVerifyTokenContractRequest)(nil),               // 18: block_proto.ApiVerifyTokenContractRequest
+	(*ApiVerifyTokenContractResponse)(nil),              // 19: block_proto.ApiVerifyTokenContractResponse
+	(*WalletTokenPriceRequest_TokenData)(nil),           // 20: block_proto.WalletTokenPriceRequest.TokenData
+	(*WalletTokenPriceResponse_TokenPriceData)(nil),     // 21: block_proto.WalletTokenPriceResponse.TokenPriceData
+	(*WalletTokenListAndVersionResponse_TokenItem)(nil), // 22: block_proto.WalletTokenListAndVersionResponse.TokenItem
+	(*WalletTokenListResponse_TokenItem)(nil),           // 23: block_proto.WalletTokenListResponse.TokenItem
+	(*WalletTxListResponse_TxItem)(nil),                 // 24: block_proto.WalletTxListResponse.TxItem
+	(*GetBlocksResponse_BlockItem)(nil),                 // 25: block_proto.GetBlocksResponse.BlockItem
 }
 var file_block_proto_depIdxs = []int32{
-	18, // 0: block_proto.WalletTokenPriceRequest.token_data_array:type_name -> block_proto.WalletTokenPriceRequest.TokenData
+	20, // 0: block_proto.WalletTokenPriceRequest.token_data_array:type_name -> block_proto.WalletTokenPriceRequest.TokenData
 	0,  // 1: block_proto.WalletTokenPriceResponse.code:type_name -> block_proto.ReturnCode
-	19, // 2: block_proto.WalletTokenPriceResponse.token_price_data_array:type_name -> block_proto.WalletTokenPriceResponse.TokenPriceData
+	21, // 2: block_proto.WalletTokenPriceResponse.token_price_data_array:type_name -> block_proto.WalletTokenPriceResponse.TokenPriceData
 	0,  // 3: block_proto.WalletTokenListAndVersionResponse.code:type_name -> block_proto.ReturnCode
-	20, // 4: block_proto.WalletTokenListAndVersionResponse.token_item_array:type_name -> block_proto.WalletTokenListAndVersionResponse.TokenItem
+	22, // 4: block_proto.WalletTokenListAndVersionResponse.token_item_array:type_name -> block_proto.WalletTokenListAndVersionResponse.TokenItem
 	1,  // 5: block_proto.WalletGetTokenListByTypeRequest.type:type_name -> block_proto.WalletGetTokenListByTypeRequest.TokenListType
 	0,  // 6: block_proto.WalletTokenListResponse.code:type_name -> block_proto.ReturnCode
-	21, // 7: block_proto.WalletTokenListResponse.token_item_array:type_name -> block_proto.WalletTokenListResponse.TokenItem
+	23, // 7: block_proto.WalletTokenListResponse.token_item_array:type_name -> block_proto.WalletTokenListResponse.TokenItem
 	0,  // 8: block_proto.WalletTxListResponse.code:type_name -> block_proto.ReturnCode
-	22, // 9: block_proto.WalletTxListResponse.tx_item_array:type_name -> block_proto.WalletTxListResponse.TxItem
+	24, // 9: block_proto.WalletTxListResponse.tx_item_array:type_name -> block_proto.WalletTxListResponse.TxItem
 	0,  // 10: block_proto.CountTransactionByBlockNumberResponse.code:type_name -> block_proto.ReturnCode
 	0,  // 11: block_proto.GetBlocksResponse.code:type_name -> block_proto.ReturnCode
-	23, // 12: block_proto.GetBlocksResponse.block_item_array:type_name -> block_proto.GetBlocksResponse.BlockItem
+	25, // 12: block_proto.GetBlocksResponse.block_item_array:type_name -> block_proto.GetBlocksResponse.BlockItem
 	0,  // 13: block_proto.CountByTimeRangeResponse.code:type_name -> block_proto.ReturnCode
-	2,  // 14: block_proto.BlockGrpcService.WalletTokenPrice:input_type -> block_proto.WalletTokenPriceRequest
-	4,  // 15: block_proto.BlockGrpcService.WalletTxDetails:input_type -> block_proto.WalletTxDetailsRequest
-	5,  // 16: block_proto.BlockGrpcService.WalletTokenUpdated:input_type -> block_proto.WalletTokenUpdatedRequest
-	7,  // 17: block_proto.BlockGrpcService.WalletTokenSearch:input_type -> block_proto.WalletTokenSearchRequest
-	8,  // 18: block_proto.BlockGrpcService.WalletGetTokenListByType:input_type -> block_proto.WalletGetTokenListByTypeRequest
-	10, // 19: block_proto.BlockGrpcService.WalletGetTransactionList:input_type -> block_proto.WalletTxListRequest
-	16, // 20: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	14, // 21: block_proto.BlockGrpcService.GetBlocks:input_type -> block_proto.GetBlocksRequest
-	12, // 22: block_proto.BlockGrpcService.CountTransactionByBlockNumber:input_type -> block_proto.CountTransactionByBlockNumberRequest
-	16, // 23: block_proto.BlockGrpcService.CountAccountByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	16, // 24: block_proto.BlockGrpcService.CountContractByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
-	3,  // 25: block_proto.BlockGrpcService.WalletTokenPrice:output_type -> block_proto.WalletTokenPriceResponse
-	11, // 26: block_proto.BlockGrpcService.WalletTxDetails:output_type -> block_proto.WalletTxListResponse
-	6,  // 27: block_proto.BlockGrpcService.WalletTokenUpdated:output_type -> block_proto.WalletTokenListAndVersionResponse
-	9,  // 28: block_proto.BlockGrpcService.WalletTokenSearch:output_type -> block_proto.WalletTokenListResponse
-	6,  // 29: block_proto.BlockGrpcService.WalletGetTokenListByType:output_type -> block_proto.WalletTokenListAndVersionResponse
-	11, // 30: block_proto.BlockGrpcService.WalletGetTransactionList:output_type -> block_proto.WalletTxListResponse
-	17, // 31: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	15, // 32: block_proto.BlockGrpcService.GetBlocks:output_type -> block_proto.GetBlocksResponse
-	13, // 33: block_proto.BlockGrpcService.CountTransactionByBlockNumber:output_type -> block_proto.CountTransactionByBlockNumberResponse
-	17, // 34: block_proto.BlockGrpcService.CountAccountByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	17, // 35: block_proto.BlockGrpcService.CountContractByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
-	25, // [25:36] is the sub-list for method output_type
-	14, // [14:25] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	0,  // 14: block_proto.ApiVerifyTokenContractResponse.code:type_name -> block_proto.ReturnCode
+	2,  // 15: block_proto.BlockGrpcService.WalletTokenPrice:input_type -> block_proto.WalletTokenPriceRequest
+	4,  // 16: block_proto.BlockGrpcService.WalletTxDetails:input_type -> block_proto.WalletTxDetailsRequest
+	5,  // 17: block_proto.BlockGrpcService.WalletTokenUpdated:input_type -> block_proto.WalletTokenUpdatedRequest
+	7,  // 18: block_proto.BlockGrpcService.WalletTokenSearch:input_type -> block_proto.WalletTokenSearchRequest
+	8,  // 19: block_proto.BlockGrpcService.WalletGetTokenListByType:input_type -> block_proto.WalletGetTokenListByTypeRequest
+	10, // 20: block_proto.BlockGrpcService.WalletGetTransactionList:input_type -> block_proto.WalletTxListRequest
+	16, // 21: block_proto.BlockGrpcService.CountTransactionByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	14, // 22: block_proto.BlockGrpcService.GetBlocks:input_type -> block_proto.GetBlocksRequest
+	12, // 23: block_proto.BlockGrpcService.CountTransactionByBlockNumber:input_type -> block_proto.CountTransactionByBlockNumberRequest
+	16, // 24: block_proto.BlockGrpcService.CountAccountByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	16, // 25: block_proto.BlockGrpcService.CountContractByTimeRange:input_type -> block_proto.CountByTimeRangeRequest
+	18, // 26: block_proto.BlockGrpcService.ApiVerifyTokenContract:input_type -> block_proto.ApiVerifyTokenContractRequest
+	3,  // 27: block_proto.BlockGrpcService.WalletTokenPrice:output_type -> block_proto.WalletTokenPriceResponse
+	11, // 28: block_proto.BlockGrpcService.WalletTxDetails:output_type -> block_proto.WalletTxListResponse
+	6,  // 29: block_proto.BlockGrpcService.WalletTokenUpdated:output_type -> block_proto.WalletTokenListAndVersionResponse
+	9,  // 30: block_proto.BlockGrpcService.WalletTokenSearch:output_type -> block_proto.WalletTokenListResponse
+	6,  // 31: block_proto.BlockGrpcService.WalletGetTokenListByType:output_type -> block_proto.WalletTokenListAndVersionResponse
+	11, // 32: block_proto.BlockGrpcService.WalletGetTransactionList:output_type -> block_proto.WalletTxListResponse
+	17, // 33: block_proto.BlockGrpcService.CountTransactionByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	15, // 34: block_proto.BlockGrpcService.GetBlocks:output_type -> block_proto.GetBlocksResponse
+	13, // 35: block_proto.BlockGrpcService.CountTransactionByBlockNumber:output_type -> block_proto.CountTransactionByBlockNumberResponse
+	17, // 36: block_proto.BlockGrpcService.CountAccountByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	17, // 37: block_proto.BlockGrpcService.CountContractByTimeRange:output_type -> block_proto.CountByTimeRangeResponse
+	19, // 38: block_proto.BlockGrpcService.ApiVerifyTokenContract:output_type -> block_proto.ApiVerifyTokenContractResponse
+	27, // [27:39] is the sub-list for method output_type
+	15, // [15:27] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_block_proto_init() }
@@ -2249,7 +2399,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenPriceRequest_TokenData); i {
+			switch v := v.(*ApiVerifyTokenContractRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2261,7 +2411,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenPriceResponse_TokenPriceData); i {
+			switch v := v.(*ApiVerifyTokenContractResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2273,7 +2423,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenListAndVersionResponse_TokenItem); i {
+			switch v := v.(*WalletTokenPriceRequest_TokenData); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2285,7 +2435,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTokenListResponse_TokenItem); i {
+			switch v := v.(*WalletTokenPriceResponse_TokenPriceData); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2297,7 +2447,7 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WalletTxListResponse_TxItem); i {
+			switch v := v.(*WalletTokenListAndVersionResponse_TokenItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2309,6 +2459,30 @@ func file_block_proto_init() {
 			}
 		}
 		file_block_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WalletTokenListResponse_TokenItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WalletTxListResponse_TxItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_block_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetBlocksResponse_BlockItem); i {
 			case 0:
 				return &v.state
@@ -2327,7 +2501,7 @@ func file_block_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_block_proto_rawDesc,
 			NumEnums:      2,
-			NumMessages:   22,
+			NumMessages:   24,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -2367,6 +2541,7 @@ type BlockGrpcServiceClient interface {
 	CountTransactionByBlockNumber(ctx context.Context, in *CountTransactionByBlockNumberRequest, opts ...grpc.CallOption) (*CountTransactionByBlockNumberResponse, error)
 	CountAccountByTimeRange(ctx context.Context, in *CountByTimeRangeRequest, opts ...grpc.CallOption) (*CountByTimeRangeResponse, error)
 	CountContractByTimeRange(ctx context.Context, in *CountByTimeRangeRequest, opts ...grpc.CallOption) (*CountByTimeRangeResponse, error)
+	ApiVerifyTokenContract(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error)
 }
 
 type blockGrpcServiceClient struct {
@@ -2476,6 +2651,15 @@ func (c *blockGrpcServiceClient) CountContractByTimeRange(ctx context.Context, i
 	return out, nil
 }
 
+func (c *blockGrpcServiceClient) ApiVerifyTokenContract(ctx context.Context, in *ApiVerifyTokenContractRequest, opts ...grpc.CallOption) (*ApiVerifyTokenContractResponse, error) {
+	out := new(ApiVerifyTokenContractResponse)
+	err := c.cc.Invoke(ctx, "/block_proto.BlockGrpcService/ApiVerifyTokenContract", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BlockGrpcServiceServer is the server API for BlockGrpcService service.
 type BlockGrpcServiceServer interface {
 	// wallet rpc
@@ -2491,6 +2675,7 @@ type BlockGrpcServiceServer interface {
 	CountTransactionByBlockNumber(context.Context, *CountTransactionByBlockNumberRequest) (*CountTransactionByBlockNumberResponse, error)
 	CountAccountByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error)
 	CountContractByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error)
+	ApiVerifyTokenContract(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error)
 }
 
 // UnimplementedBlockGrpcServiceServer can be embedded to have forward compatible implementations.
@@ -2529,6 +2714,9 @@ func (*UnimplementedBlockGrpcServiceServer) CountAccountByTimeRange(context.Cont
 }
 func (*UnimplementedBlockGrpcServiceServer) CountContractByTimeRange(context.Context, *CountByTimeRangeRequest) (*CountByTimeRangeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CountContractByTimeRange not implemented")
+}
+func (*UnimplementedBlockGrpcServiceServer) ApiVerifyTokenContract(context.Context, *ApiVerifyTokenContractRequest) (*ApiVerifyTokenContractResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApiVerifyTokenContract not implemented")
 }
 
 func RegisterBlockGrpcServiceServer(s *grpc.Server, srv BlockGrpcServiceServer) {
@@ -2733,6 +2921,24 @@ func _BlockGrpcService_CountContractByTimeRange_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BlockGrpcService_ApiVerifyTokenContract_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiVerifyTokenContractRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockGrpcServiceServer).ApiVerifyTokenContract(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/block_proto.BlockGrpcService/ApiVerifyTokenContract",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockGrpcServiceServer).ApiVerifyTokenContract(ctx, req.(*ApiVerifyTokenContractRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "block_proto.BlockGrpcService",
 	HandlerType: (*BlockGrpcServiceServer)(nil),
@@ -2780,6 +2986,10 @@ var _BlockGrpcService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CountContractByTimeRange",
 			Handler:    _BlockGrpcService_CountContractByTimeRange_Handler,
+		},
+		{
+			MethodName: "ApiVerifyTokenContract",
+			Handler:    _BlockGrpcService_ApiVerifyTokenContract_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

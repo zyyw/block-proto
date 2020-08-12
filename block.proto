@@ -17,8 +17,10 @@ service BlockGrpcService {
   rpc CountTransactionByBlockNumber(CountTransactionByBlockNumberRequest) returns (CountTransactionByBlockNumberResponse) {}
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
+  rpc ApiVerifyTokenContract(ApiVerifyTokenContractRequest) returns (ApiVerifyTokenContractResponse) {}
 }
 
+// wallet
 message WalletTokenPriceRequest {
   message TokenData {
     string contract_address = 1;
@@ -134,6 +136,7 @@ message WalletTxListResponse {
   repeated TxItem tx_item_array = 3;
 }
 
+// block explorer (api)
 message CountTransactionByBlockNumberRequest {
   uint64 block_number = 1;
 }
@@ -174,6 +177,18 @@ message CountByTimeRangeResponse {
   string message = 2;
 
   uint64 count = 3;
+}
+
+message ApiVerifyTokenContractRequest {
+  string token_symbol = 1;
+}
+
+message ApiVerifyTokenContractResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  bool is_verified_token = 3;
+  string token_contract_address = 4;
 }
 
 enum ReturnCode {
