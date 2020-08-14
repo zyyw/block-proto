@@ -18,6 +18,7 @@ service BlockGrpcService {
   rpc CountAccountByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc CountContractByTimeRange(CountByTimeRangeRequest) returns (CountByTimeRangeResponse) {}
   rpc ApiVerifyTokenSymbol(ApiVerifyTokenContractRequest) returns (ApiVerifyTokenContractResponse) {}
+  rpc ApiBlockOverview(ApiBlockOverviewRequest) returns (ApiBlockOverviewResponse) {}
 }
 
 // wallet
@@ -189,6 +190,26 @@ message ApiVerifyTokenContractResponse {
 
   bool is_verified_token = 3;
   string token_contract_address = 4;
+}
+
+message ApiBlockOverviewRequest {
+  uint64 block_number = 1;
+}
+
+message ApiBlockOverviewResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  bool exists = 3;
+  uint64 block_number = 4;
+  uint64 block_time = 5;
+  string block_hash = 6;
+  string parent_hash = 7;
+  string uncle_hash = 8;
+  string block_root = 9;
+  string coinbase = 10;
+  uint64 gas_limit = 11;
+  uint64 gas_used = 12;
 }
 
 enum ReturnCode {
