@@ -22,6 +22,7 @@ service BlockGrpcService {
   rpc ApiTxOverview(ApiTxOverviewRequest) returns (ApiTxOverviewResponse) {}
   rpc ApiCountAddress(ApiCountAddressRequest) returns (ApiCountAddressResponse) {}
   rpc ApiTxExists(ApiTxOverviewRequest) returns (ApiTxExistsResponse) {}
+  rpc ApiBlockExists(ApiBlockOverviewRequest) returns (ApiBlockExistsResponse) {}
 }
 
 // wallet
@@ -255,6 +256,13 @@ message ApiCountAddressResponse {
 }
 
 message ApiTxExistsResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  bool exists = 3;
+}
+
+message ApiBlockExistsResponse {
   ReturnCode code = 1;
   string message = 2;
 
