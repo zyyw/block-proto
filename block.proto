@@ -237,6 +237,7 @@ message ApiTxOverviewResponse {
   uint64 gas_price = 16;
   uint64 tx_status = 17;
   uint64 block_time = 18;
+  uint64 block_tx_count = 19;
 }
 
 enum ReturnCode {
