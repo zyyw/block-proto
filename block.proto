@@ -20,6 +20,7 @@ service BlockGrpcService {
   rpc ApiVerifyTokenSymbol(ApiVerifyTokenContractRequest) returns (ApiVerifyTokenContractResponse) {}
   rpc ApiBlockOverview(ApiBlockOverviewRequest) returns (ApiBlockOverviewResponse) {}
   rpc ApiTxOverview(ApiTxOverviewRequest) returns (ApiTxOverviewResponse) {}
+  rpc ApiCountAddress(ApiCountAddressRequest) returns (ApiCountAddressResponse) {}
 }
 
 // wallet
@@ -238,6 +239,18 @@ message ApiTxOverviewResponse {
   uint64 tx_status = 17;
   uint64 block_time = 18;
   uint64 block_tx_count = 19;
+}
+
+message ApiCountAddressRequest {
+  string address = 1;
+}
+
+message ApiCountAddressResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  uint64 account_count = 3;
+  uint64 contract_count = 4;
 }
 
 enum ReturnCode {
