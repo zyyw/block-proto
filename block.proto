@@ -21,6 +21,7 @@ service BlockGrpcService {
   rpc ApiBlockOverview(ApiBlockOverviewRequest) returns (ApiBlockOverviewResponse) {}
   rpc ApiTxOverview(ApiTxOverviewRequest) returns (ApiTxOverviewResponse) {}
   rpc ApiCountAddress(ApiCountAddressRequest) returns (ApiCountAddressResponse) {}
+  rpc ApiTxExists(ApiTxOverviewRequest) returns (ApiTxExistsResponse) {}
 }
 
 // wallet
@@ -251,6 +252,13 @@ message ApiCountAddressResponse {
 
   uint64 account_count = 3;
   uint64 contract_count = 4;
+}
+
+message ApiTxExistsResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  bool exists = 3;
 }
 
 enum ReturnCode {
