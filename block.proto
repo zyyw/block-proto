@@ -241,6 +241,9 @@ message ApiTxOverviewResponse {
   uint64 tx_status = 17;
   uint64 block_time = 18;
   uint64 block_tx_count = 19;
+  string token_name = 20;
+  string type = 21;
+  uint32 decimal = 22;
 }
 
 message ApiCountAddressRequest {
