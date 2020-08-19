@@ -23,6 +23,8 @@ service BlockGrpcService {
   rpc ApiCountAddress(ApiCountAddressRequest) returns (ApiCountAddressResponse) {}
   rpc ApiTxExists(ApiTxOverviewRequest) returns (ApiTxExistsResponse) {}
   rpc ApiBlockExists(ApiBlockOverviewRequest) returns (ApiBlockExistsResponse) {}
+  rpc ApiTxListByContract(ApiContractRequest) returns (ApiTxListByContractResponse) {}
+  rpc ApiContractOverview(ApiContractRequest) returns (ApiContractOverviewResponse) {}
 }
 
 // wallet
@@ -270,6 +272,43 @@ message ApiBlockExistsResponse {
   string message = 2;
 
   bool exists = 3;
+}
+
+message ApiContractRequest {
+  string contract_address = 1;
+}
+
+message ApiTxListByContractResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message TxItem {
+    string tx_hash = 1;
+    uint64 block_number = 2;
+    string tx_from = 3;
+    string tx_to = 4;
+    uint32 tx_status = 5;
+    uint64 block_time = 6;
+    string gas_price = 7;
+    string gas_used = 8;
+    string contract_value = 9;
+  }
+  repeated TxItem tx_item_array = 3;
+}
+
+message ApiContractOverviewResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  string token_symbol = 3;
+  string token_name = 4;
+  string total_supply = 5;
+  string contract_address = 6;
+  uint32 token_decimal = 7;
+  string token_icon = 8;
+  string token_type = 9;
+  string token_price = 10;
+  uint64 tx_count = 11;
 }
 
 enum ReturnCode {
