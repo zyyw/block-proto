@@ -23,8 +23,8 @@ service BlockGrpcService {
   rpc ApiCountAddress(ApiCountAddressRequest) returns (ApiCountAddressResponse) {}
   rpc ApiTxExists(ApiTxOverviewRequest) returns (ApiTxExistsResponse) {}
   rpc ApiBlockExists(ApiBlockOverviewRequest) returns (ApiBlockExistsResponse) {}
-  rpc ApiTxListByContract(ApiContractRequest) returns (ApiTxListByContractResponse) {}
-  rpc ApiContractOverview(ApiContractRequest) returns (ApiContractOverviewResponse) {}
+  rpc ApiTxListByContract(ApiTxListByContractRequest) returns (ApiTxListByContractResponse) {}
+  rpc ApiContractOverview(ApiContractOverviewRequest) returns (ApiContractOverviewResponse) {}
 }
 
 // wallet
@@ -274,8 +274,9 @@ message ApiBlockExistsResponse {
   bool exists = 3;
 }
 
-message ApiContractRequest {
+message ApiTxListByContractRequest {
   string contract_address = 1;
+  uint32 limit = 2;
 }
 
 message ApiTxListByContractResponse {
@@ -294,6 +295,10 @@ message ApiTxListByContractResponse {
     string contract_value = 9;
   }
   repeated TxItem tx_item_array = 3;
+}
+
+message ApiContractOverviewRequest {
+  string contract_address = 1;
 }
 
 message ApiContractOverviewResponse {
