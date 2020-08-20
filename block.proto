@@ -240,7 +240,7 @@ message ApiTxOverviewResponse {
   string value = 14;
   string tx_hash = 15;
   uint64 gas_price = 16;
-  uint64 tx_status = 17;
+  int32 tx_status = 17;
   uint64 block_time = 18;
   uint64 block_tx_count = 19;
   string token_name = 20;
@@ -288,7 +288,7 @@ message ApiTxListByContractResponse {
     uint64 block_number = 2;
     string tx_from = 3;
     string tx_to = 4;
-    uint32 tx_status = 5;
+    int32 tx_status = 5;
     uint64 block_time = 6;
     string gas_price = 7;
     string gas_used = 8;
