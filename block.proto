@@ -65,7 +65,7 @@ message WalletTokenListAndVersionResponse {
     string symbol = 1;
     string name = 2;
     string contract_address = 3;
-    string gas_limit = 4;
+    uint64 gas_limit = 4;
     uint32 decimal = 5;
     string icon = 6;
     bool is_popular = 7;
@@ -99,7 +99,7 @@ message WalletTokenListResponse {
     string symbol = 1;
     string name = 2;
     string contract_address = 3;
-    string gas_limit = 4;
+    uint64 gas_limit = 4;
     uint32 decimal = 5;
     string icon = 6;
     bool is_popular = 7;
@@ -132,10 +132,10 @@ message WalletTxListResponse {
     string to = 8;
     string value = 9;
     string transaction_index = 10;
-    string gas = 11;
-    string gas_price = 12;
-    string gas_used = 13;
-    string cumulative_gas_used = 14;
+    uint64 gas = 11;
+    uint64 gas_price = 12;
+    uint64 gas_used = 13;
+    uint64 cumulative_gas_used = 14;
     string input = 15;
     bool confirmed = 16;
     int32 receipt_status = 17;
@@ -229,8 +229,8 @@ message ApiTxOverviewResponse {
   string data = 3;
   bool isPending = 4;
   uint64 nonce = 5;
-  uint64 gasLimit = 6;
-  uint64 gasUsed = 7;
+  uint64 gas_limit = 6;
+  uint64 gas_used = 7;
   string block_hash = 8;
   uint64 block_number = 9;
   string from_address = 10;
@@ -290,8 +290,8 @@ message ApiTxListByContractResponse {
     string tx_to = 4;
     int32 tx_status = 5;
     uint64 block_time = 6;
-    string gas_price = 7;
-    string gas_used = 8;
+    uint64 gas_price = 7;
+    uint64 gas_used = 8;
     string contract_value = 9;
   }
   repeated TxItem tx_item_array = 3;
