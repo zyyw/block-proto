@@ -123,8 +123,8 @@ message WalletTxListResponse {
   string message = 2;
 
   message TxItem {
-    string block_number = 1;
-    string timestamp = 2;
+    uint64 block_number = 1;
+    uint64 timestamp = 2;
     string transaction_hash = 3;
     string nonce = 4;
     string block_hash = 5;
