@@ -420,6 +420,8 @@ message ApiBlockchainBlockListResponse {
     uint64 avg_gas_price = 6;
   }
   repeated BlockItem block_item_array = 3;
+
+  uint64 total_count = 4;
 }
 
 enum ReturnCode {
