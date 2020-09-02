@@ -403,7 +403,7 @@ message ApiGetLatestTxListResponse {
 }
 
 message ApiBlockchainBlockListRequest {
-  uint32 page_number = 1;
+  uint64 page_number = 1;
   uint32 page_size = 2;
 }
 
