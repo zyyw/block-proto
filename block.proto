@@ -28,6 +28,7 @@ service BlockGrpcService {
   rpc ApiAddressOverview(ApiAddressOverviewRequest) returns (ApiAddressOverviewResponse) {}
   rpc ApiTxListByAccount(ApiTxListByAccountRequest) returns (ApiTxListByAccountResponse) {}
   rpc ApiGetLatestTxList(ApiGetLatestTxListRequest) returns (ApiGetLatestTxListResponse) {}
+  rpc ApiBlockchainBlockList(ApiBlockchainBlockListRequest) returns (ApiBlockchainBlockListResponse) {}
 }
 
 // wallet
@@ -399,6 +400,26 @@ message ApiGetLatestTxListResponse {
     uint64 block_timestamp = 5;
   }
   repeated TxItem tx_item_array = 3;
+}
+
+message ApiBlockchainBlockListRequest {
+  uint32 page_number = 1;
+  uint32 page_size = 2;
+}
+
+message ApiBlockchainBlockListResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message BlockItem {
+    uint64 block_number = 1;
+    uint64 block_timestamp = 2;
+    uint64 txnCnt = 3;
+    string miner = 4;
+    uint64 gas_limit = 5;
+    uint64 avg_gas_price = 6;
+  }
+  repeated BlockItem block_item_array = 3;
 }
 
 enum ReturnCode {
