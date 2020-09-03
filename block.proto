@@ -29,6 +29,7 @@ service BlockGrpcService {
   rpc ApiTxListByAccount(ApiTxListByAccountRequest) returns (ApiTxListByAccountResponse) {}
   rpc ApiGetLatestTxList(ApiGetLatestTxListRequest) returns (ApiGetLatestTxListResponse) {}
   rpc ApiBlockchainBlockList(ApiBlockchainBlockListRequest) returns (ApiBlockchainBlockListResponse) {}
+  rpc ApiBlockchainAccountList(ApiBlockchainAccountListRequest) returns (ApiBlockchainAccountListResponse) {}
 }
 
 // wallet
@@ -422,6 +423,24 @@ message ApiBlockchainBlockListResponse {
   repeated BlockItem block_item_array = 3;
 
   uint64 total_count = 4;
+}
+
+message ApiBlockchainAccountListRequest {
+  uint64 page_number = 1;
+  uint32 page_size = 2;
+}
+
+message ApiBlockchainAccountListResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  message AccountItem {
+    string account_address = 1;
+    uint64 tx_count = 2;
+  }
+  repeated AccountItem account_item_array = 3;
+
+  uint64 total_account_count = 4;
 }
 
 enum ReturnCode {
