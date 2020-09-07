@@ -31,6 +31,7 @@ service BlockGrpcService {
   rpc ApiBlockchainBlockList(ApiBlockchainBlockListRequest) returns (ApiBlockchainBlockListResponse) {}
   rpc ApiBlockchainAccountList(ApiBlockchainAccountListRequest) returns (ApiBlockchainAccountListResponse) {}
   rpc ApiBlockchainTxList(ApiBlockchainTxListRequest) returns (ApiBlockchainTxListResponse) {}
+  rpc ApiSmartContractList(ApiSmartContractListRequest) returns (ApiSmartContractListResponse) {}
 }
 
 // wallet
@@ -470,6 +471,26 @@ message ApiBlockchainTxListResponse {
     uint64 gas_used = 12;
   }
   repeated TxItem tx_item_array = 4;
+}
+
+message ApiSmartContractListRequest {
+  uint64 page_number = 1;
+  uint32 page_size = 2;
+}
+
+message ApiSmartContractListResponse {
+  ReturnCode code = 1;
+  string message = 2;
+
+  uint64 total_contracts_count = 3;
+
+  message ContractItem {
+    uint64 block_timestamp = 1;
+    string creator_address = 2;
+    string deployed_tx_hash = 3;
+    string contract_address = 4;
+  }
+  repeated ContractItem contract_item_array = 4;
 }
 
 enum ReturnCode {
