@@ -448,6 +448,8 @@ message ApiBlockchainAccountListResponse {
 message ApiBlockchainTxListRequest {
   uint64 page_number = 1;
   uint32 page_size = 2;
+
+  string account_address = 3;
 }
 
 message ApiBlockchainTxListResponse {
