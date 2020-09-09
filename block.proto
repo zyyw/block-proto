@@ -348,12 +348,12 @@ message ApiAddressOverviewResponse {
     string tx_type = 8;
     uint64 gas_price = 9;
     uint64 gas_used = 10;
+    string token_name = 11;
+    uint32 decimal = 12;
   }
   repeated TxItem tx_item_array = 7;
 
-  string token_name = 8;
-  uint32 decimal = 9;
-  uint64 tx_count = 10;
+  uint64 tx_count = 8;
 }
 
 message ApiTxListByAccountRequest {
