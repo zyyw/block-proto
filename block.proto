@@ -32,6 +32,7 @@ service BlockGrpcService {
   rpc ApiBlockchainAccountList(ApiBlockchainAccountListRequest) returns (ApiBlockchainAccountListResponse) {}
   rpc ApiBlockchainTxList(ApiBlockchainTxListRequest) returns (ApiBlockchainTxListResponse) {}
   rpc ApiSmartContractList(ApiSmartContractListRequest) returns (ApiSmartContractListResponse) {}
+  rpc ApiGetBlockNumberByBlockHash(ApiGetBlockNumberByBlockHashRequest) returns (ApiGetBlockNumberByBlockHashResponse) {}
 }
 
 // wallet
@@ -493,6 +494,16 @@ message ApiSmartContractListResponse {
     string contract_address = 4;
   }
   repeated ContractItem contract_item_array = 4;
+}
+
+message ApiGetBlockNumberByBlockHashRequest {
+  string block_hash = 1;
+}
+
+message ApiGetBlockNumberByBlockHashResponse {
+  ReturnCode code = 1;
+  string message = 2;
+  uint64 block_number = 3;
 }
 
 enum ReturnCode {
