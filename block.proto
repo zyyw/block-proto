@@ -451,6 +451,7 @@ message ApiBlockchainTxListRequest {
   uint32 page_size = 2;
 
   string account_address = 3;
+  uint64 block_number = 4;
 }
 
 message ApiBlockchainTxListResponse {
