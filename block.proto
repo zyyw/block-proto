@@ -284,7 +284,8 @@ message ApiBlockExistsResponse {
 
 message ApiTxListByContractRequest {
   string contract_address = 1;
-  uint32 limit = 2;
+  uint64 page_number = 2;
+  uint32 page_size = 3;
 }
 
 message ApiTxListByContractResponse {
