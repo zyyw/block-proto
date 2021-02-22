@@ -43,6 +43,12 @@ message WalletTokenPriceRequest {
   }
 
   repeated TokenData token_data_array = 1;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 2;
 }
 
 message WalletTokenPriceResponse {
@@ -59,10 +65,22 @@ message WalletTokenPriceResponse {
 
 message WalletTxDetailsRequest {
   string tx_hash = 1;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 2;
 }
 
 message WalletTokenUpdatedRequest {
   uint32 version = 1;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 2;
 }
 
 message WalletTokenListAndVersionResponse {
@@ -87,6 +105,12 @@ message WalletTokenListAndVersionResponse {
 
 message WalletTokenSearchRequest {
   string keyword = 1;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 2;
 }
 
 message WalletGetTokenListByTypeRequest {
@@ -97,6 +121,12 @@ message WalletGetTokenListByTypeRequest {
   }
 
   TokenListType type = 1;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 2;
 }
 
 message WalletTokenListResponse {
@@ -123,6 +153,12 @@ message WalletTxListRequest {
   string contract_address = 2;
   uint32 page_number = 3;
   uint32 page_size = 4;
+
+  enum ChainType {
+    ETHEREUM = 0;
+    EVRYNET = 1;
+  }
+  ChainType chain_type = 5;
 }
 
 message WalletTxListResponse {
